@@ -6,12 +6,8 @@ const LightPole = () => {
   LightPoleTexture.flipY = false
   return (
     <group>
-      <mesh
-        geometry={nodes.LightPole.geometry}
-        material={nodes.LightPole.material}
-        position={[0, 1.3, -4.97]}
-      >
-        {/* <meshStandardMaterial map={LightPoleTexture} /> */}
+      <mesh geometry={nodes.LightPole.geometry} position={[0, 1.3, -4.97]}>
+        <meshBasicMaterial map={LightPoleTexture} />
       </mesh>
     </group>
   )
