@@ -8,10 +8,9 @@ const NewspaperRack = () => {
     <group>
       <mesh
         geometry={nodes.NewspaperRack.geometry}
-        material={nodes.NewspaperRack.material}
         position={[-0.44, 2.26, -0.7]}
       >
-        {/* <meshBasicMaterial map={newspaperRackTexture} /> */}
+        <meshBasicMaterial map={newspaperRackTexture} />
       </mesh>
     </group>
   )

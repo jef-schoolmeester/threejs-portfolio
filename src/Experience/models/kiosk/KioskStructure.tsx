@@ -11,7 +11,7 @@ const KioskStructure = () => {
         material={nodes.KioskStructure.material}
         position={[0, 3, -0.7]}
       >
-        {/* <meshBasicMaterial map={kioskStructureTexture} /> */}
+        <meshBasicMaterial map={kioskStructureTexture} />
       </mesh>
     </group>
   )
