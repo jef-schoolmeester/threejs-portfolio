@@ -1,12 +1,19 @@
-import { Environment, OrbitControls } from '@react-three/drei'
+import { Environment, MeshReflectorMaterial } from '@react-three/drei'
 import Models from './models'
+import Helpers from './Helpers'
+import Camera from './camera'
+import { useInitialTransition } from './hooks/useInitialTransition'
+import Effects from './Effects'
 
 const Experience = () => {
+  useInitialTransition()
   return (
     <>
       <Models />
-      <OrbitControls />
+      <Camera />
       <Environment preset="forest" />
+      <Helpers />
+      <Effects />
     </>
   )
 }
