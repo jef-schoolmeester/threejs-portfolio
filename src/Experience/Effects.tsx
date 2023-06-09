@@ -1,5 +1,3 @@
-import { ContactShadows, Environment, Sky } from '@react-three/drei'
-import { EffectComposer, SSR } from '@react-three/postprocessing'
 import { useControls } from 'leva'
 
 const Effects = () => {
@@ -49,19 +47,16 @@ const Effects = () => {
   //   ior: { value: 1.45, min: 0, max: 2 },
   // })
 
+  const { color } = useControls('fog', {
+    color: { value: '#04060d' },
+  })
+
   return (
     <>
       {/* <Sky mieCoefficient={0.005} /> */}
       {/* <Environment preset="forest" /> */}
-      <ContactShadows
-        position={[0, -0.1, 0]}
-        opacity={0.5}
-        scale={20}
-        blur={1.5}
-        far={10}
-      />
-      <color args={['#fafafa']} attach="background" />
-      <fog args={['#fafafa', 30, 85]} attach="fog" />
+      <color args={[color]} attach="background" />
+      <fog args={[color, 25, 85]} attach="fog" />
       {/* <EffectComposer>
         <SSR {...ssrProps} />
       </EffectComposer> */}
