@@ -1,10 +1,8 @@
 import { shaderMaterial, useGLTF, useTexture } from '@react-three/drei'
 
-import grassVertexShader from '../../../shaders/grass/vertex.glsl'
-import grassFragmentShader from '../../../shaders/grass/fragment.glsl'
+import grassVertexShader from '../../shaders/grass/vertex.glsl'
+import grassFragmentShader from '../../shaders/grass/fragment.glsl'
 import { extend } from '@react-three/fiber'
-import { useRef } from 'react'
-
 const GrassMaterial = shaderMaterial(
   {
     uTime: 0,
