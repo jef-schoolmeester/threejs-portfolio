@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useHoverStore } from '../store/hoverStore'
+import { useHoverStore } from '../../stores/hoverStore'
+import './style.css'
 
 const Cursor = () => {
   const cursorContent = useHoverStore((state) => state.hoverMessage)
@@ -14,7 +15,7 @@ const Cursor = () => {
 
   return (
     <div
-      className={`customCursor ${isHoverActive ? 'hoverActive' : ''}`}
+      className={`customCursor ${isHoverActive ? 'customCursorActive' : ''}`}
       style={{
         transform: `translate(calc(${corrdinates[0]}px - 50%), calc(${corrdinates[1]}px - 50%))`,
       }}
