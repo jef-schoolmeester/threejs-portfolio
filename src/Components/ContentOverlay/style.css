@@ -1,0 +1,79 @@
+.contentOverlayCenter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contentOverlayContainer {
+  margin-top: 25rem;
+  width: 700px;
+  height: auto;
+  color: #fafafa;
+}
+
+.contentOverlayContainer section {
+  background-image: linear-gradient(
+    to right,
+    #00000000,
+    #000000d5 5%,
+    #000000d5 95%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+.contentOverlayBorder {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #00000000,
+    #cd9460a0 5%,
+    #cd9460a0 95%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+.contentOverlayInnerBorder {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #00000000,
+    #cd9460a0 10%,
+    #cd9460a0 90%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+.contentOverlayTitleSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contentOverlayTitleSection h2 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin: 0.6em 0 0.5em 0;
+}
+
+.contentOverlayContentSection {
+  padding: 1rem 2.5rem;
+}
+
+.contentOverlayCloseSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 0;
+}
