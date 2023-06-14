@@ -5,26 +5,24 @@
   },
   "skills": {
     "Languages": [
-      "Javascript",
-      "Typescript",
-      "Java",
-      "PHP0",
-      "SQL",
-      "HTML",
-      "CSS"
+      ["Javascript", "Typescript", "Java", "PHP", "SQL"],
+      ["HTML", "CSS", "SASS"]
     ],
     "Technologies": [
-      "React",
-      "Next.js",
-      "Redux",
-      "Three.js",
-      "Tailwind",
-      "Node.js",
-      "Strapi",
-      "Jest"
+      ["Node.js", "React", "Redux", "Next.js"],
+      ["Three.js", "Tailwind", "Strapi", "Jest"]
     ],
-    "Databases": ["MySQL", "MariaDB", "PostgreSQL", "MongoDB", "Redis"],
-    "Devops": ["Git", "FCM", "Azure devops", "Docker", "Aws S3"],
-    "Practices": ["REST", "TDD", "Mobile first", "W3C"]
+    "Databases": [
+      ["MySQL", "MariaDB", "PostgreSQL"],
+      ["MongoDB", "Redis"]
+    ],
+    "Devops": [
+      ["Git", "Azure\ndevops", "Gitlab"],
+      ["Docker", "Aws S3"]
+    ],
+    "Practices": [
+      ["REST", "TDD"],
+      ["W3C", "Mobile first"]
+    ]
   }
 }
