@@ -1,9 +1,6 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useState } from 'react'
-import { Vector3 } from 'three'
-
-const sceneCenter = new Vector3(0, 2.5, -1)
-const cameraDestination = new Vector3(10, 1.8, 2)
+import { sceneCenter, sceneCenterCameraPosition } from '../../config'
 
 export const useInitialTransition = () => {
   const state = useThree()
@@ -16,9 +13,9 @@ export const useInitialTransition = () => {
 
   useFrame((state, delta) => {
     if (shouldTransition) {
-      state.camera.position.lerp(cameraDestination, delta)
+      state.camera.position.lerp(sceneCenterCameraPosition, delta)
       state.camera.lookAt(sceneCenter)
-      if (state.camera.position.distanceTo(cameraDestination) < 0.5)
+      if (state.camera.position.distanceTo(sceneCenterCameraPosition) < 0.5)
         setShouldTransition(false)
     }
   })
