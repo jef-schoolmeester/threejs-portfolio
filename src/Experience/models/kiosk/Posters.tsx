@@ -1,4 +1,4 @@
-import { Text3D, useGLTF, useTexture } from '@react-three/drei'
+import { Text3D, useGLTF } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 
@@ -40,7 +40,7 @@ const Posters = () => {
         position={[1, 2.56, 0.9]}
         size={0.3}
         height={0.01}
-        curveSegments={12}
+        curveSegments={4}
         bevelEnabled
         bevelThickness={0.01}
         bevelSize={0.01}
