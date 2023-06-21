@@ -24,5 +24,12 @@
       ["REST", "TDD"],
       ["W3C", "Mobile first"]
     ]
-  }
+  },
+  "experiences": [
+    { "title": "Full-stack developer" },
+    { "title": "Front-end developer" },
+    { "title": "Tech lead" },
+    { "title": "Freelance full-stack developer" },
+    { "title": "Full-stack developer" }
+  ]
 }
