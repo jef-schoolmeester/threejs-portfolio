@@ -1,8 +1,6 @@
 import { Text, useGLTF, useTexture } from '@react-three/drei'
-import { ThreeEvent } from '@react-three/fiber'
 import { Euler } from 'three'
-import { useHoverStore } from '../../../stores/hoverStore'
-import { useContentStore } from '../../../stores/contentStore'
+import HitBox from './HitBox'
 
 const StreetPanel = () => {
   const { nodes }: any = useGLTF('./models/StreetPanel.glb')
@@ -11,36 +9,9 @@ const StreetPanel = () => {
 
   const textRotation = new Euler(-Math.PI * 0.5, Math.PI * 0.5, 0, 'YZX')
 
-  const setHoverActive = useHoverStore((state) => state.setHoverActive)
-  const setHoverMessage = useHoverStore((state) => state.setHoverMessage)
-  const clearHoverMessage = useHoverStore((state) => state.clearHoverMessage)
-
-  const selectContent = useContentStore((state) => state.selectContent)
-
-  const onHover = (event: ThreeEvent<PointerEvent>) => {
-    setHoverActive(true)
-    setHoverMessage('Summary')
-    event.stopPropagation()
-  }
-
-  const offHover = () => {
-    setHoverActive(false)
-    clearHoverMessage()
-  }
-
-  const onFocus = () => {
-    setHoverActive(false)
-    clearHoverMessage()
-    selectContent('summary')
-  }
-
   return (
-    <group
-      onPointerEnter={onHover}
-      onPointerLeave={offHover}
-      onPointerMove={(event) => event.stopPropagation()}
-      onClick={onFocus}
-    >
+    <group>
+      <HitBox />
       <mesh
         geometry={nodes.Structure.geometry}
         material={nodes.Structure.material}

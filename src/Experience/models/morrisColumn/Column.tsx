@@ -1,49 +1,15 @@
-import { Text3D, useGLTF, useTexture } from '@react-three/drei'
-import { useHoverStore } from '../../../stores/hoverStore'
-import { ThreeEvent, useLoader } from '@react-three/fiber'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
-import { TextureLoader, Vector3 } from 'three'
-import { useTransitionStore } from '../../../stores/transitionStore'
 
 import data from '../../../data.json'
 import SectionTitle from './SectionTitle'
 import SkillSet from './SkillSet'
-import { useContentStore } from '../../../stores/contentStore'
+import HitBox from './HitBox'
 
 const Column = () => {
   const { nodes }: any = useGLTF('./models/Column.glb')
   const columnTexture = useTexture('./textures/Column2.jpg')
-  const titlesTexture = useLoader(
-    TextureLoader,
-    './textures/matcaps/silver.png'
-  )
   columnTexture.flipY = false
-
-  const setHoverActive = useHoverStore((state) => state.setHoverActive)
-  const setHoverMessage = useHoverStore((state) => state.setHoverMessage)
-  const clearHoverMessage = useHoverStore((state) => state.clearHoverMessage)
-
-  const startTransition = useTransitionStore((state) => state.startTransition)
-  const focusContent = useContentStore((state) => state.focusContent)
-
-  const onHover = (event: ThreeEvent<PointerEvent>) => {
-    setHoverActive(true)
-    setHoverMessage('Skills')
-    event.stopPropagation()
-  }
-
-  const offHover = () => {
-    setHoverActive(false)
-    clearHoverMessage()
-  }
-
-  const onFocus = () => {
-    startTransition({
-      to: new Vector3(6.8, 1.8, 0.4),
-      focusPoint: new Vector3(0, 3, 2),
-    })
-    focusContent('column')
-  }
 
   const { distance, skillsDistance } = useControls('columnTextr', {
     // positionX: { value: 1.02, min: 0, max: 4, step: 0.01 },
@@ -58,12 +24,7 @@ const Column = () => {
   const skills = Object.values(data.skills)
 
   return (
-    <group
-      onPointerEnter={onHover}
-      onPointerLeave={offHover}
-      onPointerMove={(event) => event.stopPropagation()}
-      onClick={onFocus}
-    >
+    <group>
       <mesh
         geometry={nodes.Column.geometry}
         position={[0, 1, 2]}
@@ -91,6 +52,7 @@ const Column = () => {
           />
         ))}
       </mesh>
+      <HitBox />
     </group>
   )
 }
