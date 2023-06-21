@@ -1,7 +1,21 @@
 import { useThree } from '@react-three/fiber'
-import { useTransitionStore } from '../../stores/transitionStore'
+import { useTransitionStore } from '../stores/transitionStore'
 import { useSpring } from '@react-spring/three'
 import { useEffect } from 'react'
+
+const defaultTransitionConfig = {
+  mass: 1,
+  friction: 50,
+  tension: 170,
+  clamp: true,
+}
+
+const fastTransitionConfig = {
+  mass: 2,
+  friction: 40,
+  tension: 200,
+  clamp: true,
+}
 
 export const useAnimatedTransition = () => {
   const isActive = useTransitionStore((state) => state.isTransitionActive)
@@ -32,12 +46,7 @@ export const useAnimatedTransition = () => {
     onStart: () => {
       console.log('START TRANSITION', Date.now())
     },
-    config: {
-      mass: 1,
-      friction: 50,
-      tension: 170,
-      clamp: true,
-    },
+    config: defaultTransitionConfig,
   }))
 
   useEffect(() => {
@@ -54,6 +63,10 @@ export const useAnimatedTransition = () => {
         position: destination.to.toArray(),
         focusPoint: destination.focusPoint.toArray(),
       },
+      config:
+        destination?.speed === 'fast'
+          ? fastTransitionConfig
+          : defaultTransitionConfig,
     })
   }, [isActive, destination])
 }

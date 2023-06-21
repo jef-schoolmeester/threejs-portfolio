@@ -1,6 +1,6 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useState } from 'react'
-import { sceneCenter, sceneCenterCameraPosition } from '../../config'
+import { sceneCenter, sceneCenterCameraPosition } from '../config'
 
 export const useInitialTransition = () => {
   const state = useThree()
