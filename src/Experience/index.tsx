@@ -12,7 +12,7 @@ const Experience = () => {
   useAnimatedTransition()
   return (
     <>
-      <Perf position="top-left" />
+      <Perf position="bottom-right" />
       <Models />
       <Camera />
       <Environment preset="forest" />
