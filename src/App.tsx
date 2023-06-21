@@ -5,6 +5,7 @@ import Cursor from './Components/Cursor'
 import ContentManager from './Components/ContentManager'
 import { cameraStartPosition } from './config'
 import FocusManager from './Components/FocusManager'
+import KioskContentManager from './Components/KioskContentManager/Manager'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
       /> */}
       <ContentManager />
       <FocusManager />
+      <KioskContentManager />
     </>
   )
 }

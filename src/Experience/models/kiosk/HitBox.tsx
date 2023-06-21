@@ -25,16 +25,11 @@ const HitBox = () => {
 
   const onFocus = () => {
     startTransition({
-      // to: new Vector3(2.52, 1.8, -0.7),
-      // focusPoint: new Vector3(-1.2, 1.2, -0.7),
-
       to: new Vector3(2, 1.8, -0.7),
       focusPoint: new Vector3(-0.5, 2.1, -0.7), // exp
-      // focusPoint: new Vector3(-0.5, 1.1, -0.7), // projects
-      // focusPoint: new Vector3(0.2, 0.7, -0.7), // educ
     })
 
-    focusContent('kiosk')
+    focusContent('kiosk#experiences')
   }
 
   return (
