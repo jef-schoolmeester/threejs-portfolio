@@ -4,7 +4,11 @@ import { useHoverStore } from '../../../stores/hoverStore'
 import { useTransitionStore } from '../../../stores/transitionStore'
 import { Vector3 } from 'three'
 
-const HitBox = () => {
+interface Props {
+  isActive: boolean
+}
+
+const KioskHitBox: React.FC<Props> = ({ isActive }) => {
   const setHoverActive = useHoverStore((state) => state.setHoverActive)
   const setHoverMessage = useHoverStore((state) => state.setHoverMessage)
   const clearHoverMessage = useHoverStore((state) => state.clearHoverMessage)
@@ -13,6 +17,7 @@ const HitBox = () => {
   const focusContent = useContentStore((state) => state.focusContent)
 
   const onHover = (event: ThreeEvent<PointerEvent>) => {
+    if (!isActive) return
     setHoverActive(true)
     setHoverMessage('About me')
     event.stopPropagation()
@@ -24,9 +29,10 @@ const HitBox = () => {
   }
 
   const onFocus = () => {
+    if (!isActive) return
     startTransition({
       to: new Vector3(2, 1.8, -0.7),
-      focusPoint: new Vector3(-0.5, 2.1, -0.7), // exp
+      focusPoint: new Vector3(-0.5, 2.1, -0.7), // experience section focus
     })
 
     focusContent('kiosk#experiences')
@@ -65,4 +71,4 @@ const HitBox = () => {
   )
 }
 
-export default HitBox
+export default KioskHitBox

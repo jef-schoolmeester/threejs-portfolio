@@ -1,17 +1,25 @@
 import { ThreeEvent } from '@react-three/fiber'
 import { useContentStore } from '../../../stores/contentStore'
 import { useHoverStore } from '../../../stores/hoverStore'
+import { useTransitionStore } from '../../../stores/transitionStore'
+import { Vector3 } from 'three'
 
-const HitBox = () => {
+interface Props {
+  isActive: boolean
+}
+
+const MorrisColumnHitBox: React.FC<Props> = ({ isActive }) => {
   const setHoverActive = useHoverStore((state) => state.setHoverActive)
   const setHoverMessage = useHoverStore((state) => state.setHoverMessage)
   const clearHoverMessage = useHoverStore((state) => state.clearHoverMessage)
 
-  const selectContent = useContentStore((state) => state.selectContent)
+  const startTransition = useTransitionStore((state) => state.startTransition)
+  const focusContent = useContentStore((state) => state.focusContent)
 
   const onHover = (event: ThreeEvent<PointerEvent>) => {
+    if (!isActive) return
     setHoverActive(true)
-    setHoverMessage('Summary')
+    setHoverMessage('Skills')
     event.stopPropagation()
   }
 
@@ -21,24 +29,27 @@ const HitBox = () => {
   }
 
   const onFocus = () => {
-    setHoverActive(false)
-    clearHoverMessage()
-    selectContent('summary')
+    if (!isActive) return
+    startTransition({
+      to: new Vector3(6.8, 1.8, 0.4),
+      focusPoint: new Vector3(0, 3, 2),
+    })
+    focusContent('column')
   }
 
   return (
     <mesh
-      position={[1.45, 0.65, -2.4]}
-      rotation={[0, -0.436, 0]}
+      position={[0, 2.8, 2]}
+      rotation={[0, -Math.PI / 6, 0]}
       onPointerOver={onHover}
       onPointerOut={offHover}
       onPointerMove={onHover}
       onClick={onFocus}
     >
-      <boxGeometry args={[0.3, 1.05, 0.7]} />
+      <cylinderGeometry args={[1, 1, 5.6, 6]} />
       <meshBasicMaterial visible={false} />
     </mesh>
   )
 }
 
-export default HitBox
+export default MorrisColumnHitBox
