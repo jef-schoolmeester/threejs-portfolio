@@ -35,6 +35,8 @@ const MorrisColumnHitBox: React.FC<Props> = ({ isActive }) => {
       focusPoint: new Vector3(0, 3, 2),
     })
     focusContent('column')
+    setHoverActive(false)
+    clearHoverMessage()
   }
 
   return (

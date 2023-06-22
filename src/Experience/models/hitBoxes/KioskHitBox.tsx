@@ -1,4 +1,4 @@
-import { ThreeEvent } from '@react-three/fiber'
+import { ThreeEvent, useFrame } from '@react-three/fiber'
 import { useContentStore } from '../../../stores/contentStore'
 import { useHoverStore } from '../../../stores/hoverStore'
 import { useTransitionStore } from '../../../stores/transitionStore'
@@ -34,9 +34,11 @@ const KioskHitBox: React.FC<Props> = ({ isActive }) => {
       to: new Vector3(2, 1.8, -0.7),
       focusPoint: new Vector3(-0.5, 2.1, -0.7), // experience section focus
     })
-
     focusContent('kiosk#experiences')
+    offHover()
   }
+
+  const scale = isActive ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0)
 
   return (
     <>
@@ -46,6 +48,7 @@ const KioskHitBox: React.FC<Props> = ({ isActive }) => {
         onPointerOut={offHover}
         onPointerMove={onHover}
         onClick={onFocus}
+        scale={scale}
       >
         <boxGeometry args={[2, 3.3, 3.4]} />
         <meshBasicMaterial visible={false} />
