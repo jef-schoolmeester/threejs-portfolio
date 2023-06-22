@@ -1,6 +1,5 @@
 import { Text, useGLTF, useTexture } from '@react-three/drei'
 import { Euler } from 'three'
-import HitBox from './HitBox'
 
 const StreetPanel = () => {
   const { nodes }: any = useGLTF('./models/StreetPanel.glb')
@@ -11,7 +10,6 @@ const StreetPanel = () => {
 
   return (
     <group>
-      <HitBox />
       <mesh
         geometry={nodes.Structure.geometry}
         material={nodes.Structure.material}

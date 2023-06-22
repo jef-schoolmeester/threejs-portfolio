@@ -5,8 +5,6 @@ import NewspaperStacks from './NewspaperStacks'
 import Newspapers from './Newspapers'
 import Posters from './Posters'
 
-import HitBox from './HitBox'
-
 const Kiosk = () => {
   return (
     <group>
@@ -15,7 +13,6 @@ const Kiosk = () => {
       <Posters />
       <Newspapers />
       <NewspaperStacks />
-      <HitBox />
     </group>
   )
 }

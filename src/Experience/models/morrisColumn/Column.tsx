@@ -4,7 +4,6 @@ import { useControls } from 'leva'
 import data from '../../../data.json'
 import SectionTitle from './SectionTitle'
 import SkillSet from './SkillSet'
-import HitBox from './HitBox'
 
 const Column = () => {
   const { nodes }: any = useGLTF('./models/Column.glb')
@@ -52,7 +51,6 @@ const Column = () => {
           />
         ))}
       </mesh>
-      <HitBox />
     </group>
   )
 }
