@@ -1,9 +1,10 @@
-import { Text, useGLTF, useTexture } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { useEffect } from 'react'
 import { MeshBasicMaterial } from 'three'
 
 import data from '../../../data.json'
 import { getOrderedNewspaperNodeKeys } from '../../../utils/newspapers'
+import Newspaper from './Newspaper'
 
 const material = new MeshBasicMaterial()
 const experiences = data.experiences
@@ -37,32 +38,21 @@ const Newspapers = () => {
       {topNewspapersKeys.map((key, index) => {
         const node = nodes[key]
         return (
-          <mesh
+          <Newspaper
             key={key}
             geometry={node.geometry}
             material={material}
             position={node.position}
             rotation={node.rotation}
-          >
-            <Text
-              position={[-0.15, 0.01, -0.1]}
-              rotation={[-Math.PI / 2, Math.PI / 2, 0, 'YXZ']}
-              font="./fonts/Overpass.woff2"
-              color="#121212"
-              fontSize={0.05}
-              maxWidth={0.22}
-              anchorY="top-baseline"
-              anchorX="right"
-            >
-              {experiences[index]?.title}
-            </Text>
-          </mesh>
+            text={experiences[index]?.title}
+            id={experiences[index]?.id}
+          />
         )
       })}
       {bottomNewspapersKeys.map((key) => {
         const node = nodes[key]
         return (
-          <mesh
+          <Newspaper
             key={key}
             geometry={node.geometry}
             material={material}

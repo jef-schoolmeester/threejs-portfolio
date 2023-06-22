@@ -4,7 +4,8 @@ import { useTransitionStore } from '../../stores/transitionStore'
 import FocusOverlay from '../FocusOverlay'
 
 const FocusManager = () => {
-  const content = useContentStore((state) => state.focusedContent)
+  const focusedContent = useContentStore((state) => state.focusedContent)
+  const content = useContentStore((state) => state.content)
   const close = useContentStore((state) => state.exitFocusedContent)
   const isTransitionActive = useTransitionStore(
     (state) => state.isTransitionActive
@@ -19,7 +20,12 @@ const FocusManager = () => {
     })
   }
 
-  if (!content.isContentVisible || isTransitionActive) return null
+  if (
+    !focusedContent.isContentVisible ||
+    isTransitionActive ||
+    content.isContentVisible
+  )
+    return null
   return <FocusOverlay handleClose={handleClose} />
 }
 
