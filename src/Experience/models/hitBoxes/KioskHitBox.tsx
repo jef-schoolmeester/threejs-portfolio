@@ -1,4 +1,4 @@
-import { ThreeEvent, useFrame } from '@react-three/fiber'
+import { ThreeEvent } from '@react-three/fiber'
 import { useContentStore } from '../../../stores/contentStore'
 import { useHoverStore } from '../../../stores/hoverStore'
 import { useTransitionStore } from '../../../stores/transitionStore'
@@ -52,23 +52,6 @@ const KioskHitBox: React.FC<Props> = ({ isActive }) => {
       >
         <boxGeometry args={[2, 3.3, 3.4]} />
         <meshBasicMaterial visible={false} />
-      </mesh>
-      <mesh position={[-0.5, 2.1, -0.7]}>
-        <boxGeometry args={[0.1, 0.1, 0.1]} />
-        <meshBasicMaterial visible={true} wireframe color="red" />
-      </mesh>
-      <mesh position={[-0.4, 1.1, -0.7]}>
-        <boxGeometry args={[0.1, 0.1, 0.1]} />
-        <meshBasicMaterial visible={true} wireframe color="green" />
-      </mesh>
-      <mesh position={[0.2, 0.7, -0.7]}>
-        <boxGeometry args={[0.1, 0.1, 0.1]} />
-        <meshBasicMaterial visible={true} wireframe color="purple" />
-      </mesh>
-
-      <mesh position={[2, 1.8, -0.7]}>
-        <boxGeometry args={[0.1, 0.1, 0.1]} />
-        <meshBasicMaterial visible={true} wireframe color="blue" />
       </mesh>
     </>
   )
