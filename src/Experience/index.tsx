@@ -6,17 +6,24 @@ import { useInitialTransition } from '../hooks/useInitialTransition'
 import Effects from './Effects'
 import { Perf } from 'r3f-perf'
 import { useAnimatedTransition } from '../hooks/useAnimatedTransition'
+import { useDebugMode } from '../hooks/useDebugMode'
 
 const Experience = () => {
   useInitialTransition()
   useAnimatedTransition()
+
+  const isDebugModeEnabled = useDebugMode()
   return (
     <>
-      <Perf position="bottom-right" />
+      {isDebugModeEnabled && (
+        <>
+          <Helpers />
+          <Perf position="bottom-right" />
+        </>
+      )}
       <Models />
       <Camera />
       <Environment preset="forest" />
-      <Helpers />
       <Effects />
     </>
   )

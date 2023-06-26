@@ -12,7 +12,8 @@ export const useInitialTransition = () => {
   const [shouldTransition, setShouldTransition] = useState<boolean>(false)
 
   useEffect(() => {
-    if (isLoadingScreenVisible) return
+    if (isLoadingScreenVisible && !window.location.hash.includes('debug'))
+      return
     state.camera.lookAt(sceneCenter)
     setShouldTransition(true)
   }, [isLoadingScreenVisible])
