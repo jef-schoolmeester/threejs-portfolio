@@ -15,7 +15,7 @@ extend({ GrassMaterial })
 
 const Grass = () => {
   const { nodes }: any = useGLTF('./models/Grass.glb')
-  const grassTexture = useTexture('./textures/Grass.jpg')
+  const grassTexture = useTexture('./textures/Grass-min.jpg')
   grassTexture.flipY = false
 
   return (

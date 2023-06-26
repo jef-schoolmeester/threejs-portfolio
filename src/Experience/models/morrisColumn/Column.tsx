@@ -7,7 +7,7 @@ import SkillSet from './SkillSet'
 
 const Column = () => {
   const { nodes }: any = useGLTF('./models/Column.glb')
-  const columnTexture = useTexture('./textures/Column2.jpg')
+  const columnTexture = useTexture('./textures/Column-min.jpg')
   columnTexture.flipY = false
 
   const { distance, skillsDistance } = useControls('columnTextr', {

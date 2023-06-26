@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 
 const NewspaperStacks = () => {
   const { nodes }: any = useGLTF('./models/newspapers.glb')
-  const newspaperStacksTexture = useTexture('./textures/Newspapers.jpg')
+  const newspaperStacksTexture = useTexture('./textures/Newspapers-min.jpg')
   newspaperStacksTexture.flipY = false
   return (
     <group>

@@ -62,7 +62,7 @@ const Newspaper: React.FC<Props> = ({
         <Text
           position={[-0.15, 0.01, -0.1]}
           rotation={[-Math.PI / 2, Math.PI / 2, 0, 'YXZ']}
-          font="./fonts/Overpass.woff2"
+          font="./fonts/Overpass.woff"
           color="#121212"
           fontSize={0.05}
           maxWidth={0.22}

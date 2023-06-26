@@ -8,7 +8,7 @@ const Posters = () => {
   const metalness = 1
   const roughness = 0.3
 
-  const texture = useLoader(TextureLoader, './textures/FancyText.png')
+  const texture = useLoader(TextureLoader, './textures/matcaps/FancyText.jpg')
 
   return (
     <group dispose={null}>

@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 
 const NewspaperRack = () => {
   const { nodes }: any = useGLTF('./models/Kiosk/NewspaperRack.glb')
-  const newspaperRackTexture = useTexture('./textures/NewspaperRack.jpg')
+  const newspaperRackTexture = useTexture('./textures/NewspaperRack-min.jpg')
   newspaperRackTexture.flipY = false
   return (
     <group>

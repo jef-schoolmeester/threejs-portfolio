@@ -3,7 +3,7 @@ import { Euler } from 'three'
 
 const StreetPanel = () => {
   const { nodes }: any = useGLTF('./models/StreetPanel.glb')
-  const streetPanelTexture = useTexture('./textures/StreetPanel.jpg')
+  const streetPanelTexture = useTexture('./textures/StreetPanel-min.jpg')
   streetPanelTexture.flipY = false
 
   const textRotation = new Euler(-Math.PI * 0.5, Math.PI * 0.5, 0, 'YZX')
@@ -28,7 +28,7 @@ const StreetPanel = () => {
         <Text
           position={[-0.251, 0.01, 0]}
           rotation={textRotation}
-          font="./fonts/Overpass.woff2"
+          font="./fonts/Overpass.woff"
           color="#fafafa"
           fontSize={0.12}
         >
@@ -37,7 +37,6 @@ const StreetPanel = () => {
         <Text
           position={[0.1, 0.01, 0]}
           rotation={textRotation}
-          font="./fonts/Overpass.woff2"
           color="#fafafa"
           fontSize={0.12}
           maxWidth={0.45}

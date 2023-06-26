@@ -16,7 +16,7 @@ const SkillSet: React.FC<Props> = ({ skills, position, distance }) => {
       <Text
         position={[x, 2.3, z]}
         rotation-y={rotation}
-        font="./fonts/Overpass.woff2"
+        font="./fonts/Overpass.woff"
         color="#121212"
         fontSize={0.17}
         maxWidth={0.1}
@@ -31,7 +31,7 @@ const SkillSet: React.FC<Props> = ({ skills, position, distance }) => {
       <Text
         position={[x, 0.9, z]}
         rotation-y={rotation}
-        font="./fonts/Overpass.woff2"
+        font="./fonts/Overpass.woff"
         color="#121212"
         fontSize={0.17}
         maxWidth={0.1}

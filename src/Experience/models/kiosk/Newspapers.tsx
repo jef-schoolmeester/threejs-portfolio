@@ -12,7 +12,7 @@ const experiences = data.experiences
 const Newspapers = () => {
   const { nodes }: any = useGLTF('./models/Kiosk/Newspapers.glb')
 
-  const newspapersTexture = useTexture('./textures/FrontNewspapers.jpg')
+  const newspapersTexture = useTexture('./textures/FrontNewspapers-min.jpg')
   newspapersTexture.flipY = false
 
   useEffect(() => {

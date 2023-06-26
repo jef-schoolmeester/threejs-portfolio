@@ -11,7 +11,7 @@ interface Props {
 const SectionTitle: React.FC<Props> = ({ title, position, distance }) => {
   const titlesTexture = useLoader(
     TextureLoader,
-    './textures/matcaps/silver.png'
+    './textures/matcaps/silver.jpg'
   )
 
   const rotation = (2 * Math.PI) / 3 - (Math.PI / 3) * position + Math.PI / 6

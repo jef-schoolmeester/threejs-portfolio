@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 
 const KioskStructure = () => {
   const { nodes }: any = useGLTF('./models/Kiosk/KioskStructure.glb')
-  const kioskStructureTexture = useTexture('./textures/KioskStructure.jpg')
+  const kioskStructureTexture = useTexture('./textures/KioskStructure-min.jpg')
   kioskStructureTexture.flipY = false
   return (
     <group>

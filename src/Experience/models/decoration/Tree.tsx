@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 
 const Tree = () => {
   const { nodes }: any = useGLTF('./models/Tree/Tree.glb')
-  const treeTexture = useTexture('./models/Tree/Tree.jpg')
+  const treeTexture = useTexture('./textures/Tree-min.jpg')
   treeTexture.flipY = false
   return (
     <group>
