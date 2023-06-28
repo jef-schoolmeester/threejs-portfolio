@@ -9,6 +9,7 @@ import KioskContentManager from './Components/KioskContentManager/Manager'
 import { Suspense, useEffect, useState } from 'react'
 import LoadingScreen from './Components/LoadingScreen'
 import { useDebugMode } from './hooks/useDebugMode'
+import UnderConstruction from './Components/UnderConstructuion'
 
 const App = () => {
   const [renderAllowed, setRenderAllowed] = useState(false)
@@ -41,6 +42,7 @@ const App = () => {
       <ContentManager />
       <FocusManager />
       <KioskContentManager />
+      <UnderConstruction />
       {!isDebugModeEnabled && <LoadingScreen />}
     </>
   )
