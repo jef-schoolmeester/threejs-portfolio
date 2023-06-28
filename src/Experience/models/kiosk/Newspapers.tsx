@@ -5,12 +5,14 @@ import { MeshBasicMaterial } from 'three'
 import data from '../../../data.json'
 import { getOrderedNewspaperNodeKeys } from '../../../utils/newspapers'
 import Newspaper from './Newspaper'
+import Revue from './Revue'
 
 const material = new MeshBasicMaterial()
 const experiences = data.experiences
+const education = data.education
 
 const Newspapers = () => {
-  const { nodes }: any = useGLTF('./models/Kiosk/Newspapers.glb')
+  const { nodes }: any = useGLTF('./models/Kiosk/Newspapers-2.glb')
 
   const newspapersTexture = useTexture('./textures/FrontNewspapers-min.jpg')
   newspapersTexture.flipY = false
@@ -85,15 +87,17 @@ const Newspapers = () => {
           />
         )
       })}
-      {bottomRevuesKeys.map((key) => {
+      {bottomRevuesKeys.map((key, index) => {
         const node = nodes[key]
         return (
-          <mesh
+          <Revue
             key={key}
             geometry={node.geometry}
             material={material}
             position={node.position}
             rotation={node.rotation}
+            text={education[index]?.title}
+            id={education[index]?.id}
           />
         )
       })}

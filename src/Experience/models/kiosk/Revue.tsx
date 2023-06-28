@@ -14,7 +14,7 @@ interface Props {
   id?: string
 }
 
-const Newspaper: React.FC<Props> = ({
+const Revue: React.FC<Props> = ({
   geometry,
   material,
   position,
@@ -42,7 +42,7 @@ const Newspaper: React.FC<Props> = ({
       !id
     )
       return
-    selectContent(`experiences#${id}`)
+    selectContent(`education#${id}`)
   }
 
   return (
@@ -60,15 +60,17 @@ const Newspaper: React.FC<Props> = ({
     >
       {text && (
         <Text
-          position={[-0.1, 0.01, -0.03]}
-          rotation={[-Math.PI / 2, Math.PI / 2, 0, 'YXZ']}
+          position={[0, 0.01, 0.13]}
+          rotation={[-Math.PI / 2, Math.PI, 0, 'YXZ']}
           font="./fonts/Overpass.woff"
           color="#121212"
-          fontSize={0.05}
+          fontSize={0.045}
           maxWidth={0.23}
           lineHeight={1}
-          anchorY="top-baseline"
-          anchorX="right"
+          letterSpacing={-0.09}
+          anchorY="top"
+          anchorX="center"
+          textAlign="center"
         >
           {text}
         </Text>
@@ -77,4 +79,4 @@ const Newspaper: React.FC<Props> = ({
   )
 }
 
-export default Newspaper
+export default Revue
