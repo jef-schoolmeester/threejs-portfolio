@@ -1,0 +1,85 @@
+.revueOverlayCenter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.revueOverlayContainer {
+  margin-bottom: 0%;
+  width: 800px;
+  height: auto;
+  color: #fafafa;
+}
+
+.revueOverlayContainer section {
+  background-image: linear-gradient(
+    to right,
+    #00000000,
+    #000000d5 5%,
+    #000000d5 95%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+.revueOverlayBorder {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #00000000,
+    #cd9460a0 5%,
+    #cd9460a0 95%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+.revueOverlayInnerBorder {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #00000000,
+    #cd9460a0 10%,
+    #cd9460a0 90%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+.revueOverlayTitleSection {
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.revueOverlayTitleSection h2 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin: 0.6em 0 0.5em 0;
+}
+
+.revueOverlayTitleSection h3 {
+  font-weight: 300;
+  margin: 0;
+}
+
+.revueOverlayContentSection {
+  padding: 1rem 3rem;
+}
+
+.revueOverlayCloseSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 0;
+}
