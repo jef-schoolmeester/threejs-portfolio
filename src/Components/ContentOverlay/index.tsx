@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ContentOverlay: React.FC<Props> = ({ title, content, handleClose }) => {
-  const [props, api] = useSpring(
+  const [opacityProps] = useSpring(
     () => ({
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -17,10 +17,18 @@ const ContentOverlay: React.FC<Props> = ({ title, content, handleClose }) => {
     []
   )
 
+  const [blurProps] = useSpring(
+    () => ({
+      from: { backdropFilter: 'blur(0px)' },
+      to: { backdropFilter: 'blur(5px)' },
+    }),
+    []
+  )
+
   return (
-    <div className="contentOverlayCenter">
+    <animated.div className="contentOverlayCenter" style={{ ...blurProps }}>
       <animated.div
-        style={{ opacity: props.opacity, backdropFilter: 'blur(5px)' }}
+        style={{ ...opacityProps, backdropFilter: 'blur(5px)' }}
         className="contentOverlayContainer"
       >
         <span className="contentOverlayBorder" />
@@ -35,7 +43,7 @@ const ContentOverlay: React.FC<Props> = ({ title, content, handleClose }) => {
         </section>
         <span className="contentOverlayBorder" />
       </animated.div>
-    </div>
+    </animated.div>
   )
 }
 
