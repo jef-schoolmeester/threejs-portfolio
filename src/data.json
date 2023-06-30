@@ -1,7 +1,7 @@
 {
   "summary": {
     "title": "Hello !",
-    "content": "I'm Jef Schoolmeester, a passionate and motivated full-stack developer. With over three years of experience, I bring a creative and problem-solving mindset to every project. I thrive on learning new concepts and technologies.\nFeel free to explore my portfolio!"
+    "content": "I'm Jef Schoolmeester, a passionate and motivated full-stack developer. With over three years of experience, I bring a creative and problem-solving mindset to every project. I thrive on learning new concepts and technologies.<br />Feel free to explore my portfolio!"
   },
   "skills": {
     "Languages": [
@@ -28,27 +28,44 @@
   "experiences": [
     {
       "id": "newrest",
-      "title": "Full-stack developer",
-      "content": "TEST CONTENT"
+      "title": "Newrest",
+      "content": "Contributed to the development of multiple web applications, working tightly with design and marketing teams.<br /><br />Smartbar:<br />- Developed and maintained a food ordering web application used by the French national trains using Next.js, Redux, Mule soft, Magento2, Docker, and AWS S3.<br />- Improved the web application's accessibility by implementing RGAA standards.<br />- Implemented Azure AD authentication for the middle office.<br />- Created parent docker images reducing build time by 50%.<br /><br />Smartbar onboard Kiosk:<br />- Implemented a kiosk version of Smartbar that runs on trains.<br />- Developed a proxy using Node.js, Typescript, and Redis to handle offline mode.<br />- Created an Azure DevOps pipeline to build and zip the project.<br /><br />Connect-eat:<br />- Maintained an E-wallet & informative PWA using Next.js, Strapi, and Typescript.<br />- Implemented new features such as account management, push notifications, satisfaction, and attendance monitoring.<br />- Wrote documentation for a MongoDB to PostgreSQL data migration, facilitating the migration process.",
+      "role": "Full-stack developer",
+      "term": "Oct.2021 - Feb.2023"
     },
     {
       "id": "docdoku",
-      "title": "Front-end developer",
-      "content": "TEST CONTENT"
+      "title": "Docdoku",
+      "content": "- Developed and maintained Popafood, a mobile app for online food ordering using React Native and Typescript.<br />- Applied test-driven development using jest, react testing library, and detox to ensure quality code and prevent regressions.<br />- Participated in weekly scrum meetings.",
+      "role": "Front-end developer intern",
+      "term": "Apr.2021 - Sep.2021"
     },
     {
       "id": "toxiplan",
-      "title": "Tech lead",
-      "content": "TEST CONTENT"
+      "title": "Toxiplan",
+      "content": "- Developed a web platform to manage toxicology reports, utilizing React, Node.js, Express.js, and MongoDB.<br />- Led a team of 5 developers, providing mentorship and assistance.<br />- Designed the platform's architecture, making key decisions on the technologies and tools used for the project's development.<br />- Worked closely with the client to ensure that the platform met the company's needs, delivering weekly updates.<br />- Conducted code reviews to ensure quality and minimize the risk of regressions.",
+      "role": "Tech. lead",
+      "term": "Nov.2020 - Apr.2021"
     },
     {
       "id": "atelierdelinsolite",
-      "title": "Freelance full-stack developer",
-      "content": "TEST CONTENT"
+      "title": "Atelier de l'Insolite",
+      "content": "- Developed an editable portfolio using Next.js, Strapi, and Sass.<br />- Deployed the portfolio on an OVH VPS using Docker and Docker Compose.<br />- Implemented subdomains and HTTPS using Nginx and Certbot.",
+      "role": "Freelance Full-stack developer",
+      "term": "Oct.2020 - Sep.2021"
     },
     {
       "id": "findee",
-      "title": "Full-stack developer",
+      "title": "Findee",
+      "content": "- Developed and maintained a web app that uses artificial intelligence to recommend clients for b2b businesses, using React, Node.js, Express, and MongoDB.<br />- Integrated the app with Zappier to simplify the user's workflow.",
+      "role": "Full-stack developer intern",
+      "term": "Jun.2020 - Aug.2020"
+    }
+  ],
+  "projects": [
+    {
+      "id": "foodify",
+      "title": "FOODIFY",
       "content": "TEST CONTENT"
     }
   ],
@@ -56,22 +73,52 @@
     {
       "id": "threejsjourney",
       "title": "THREE JS",
-      "content": "TEST CONTENT"
+      "courseName": "Bruno Simon's THREE.JS Journey",
+      "term": "2023 - 2023",
+      "learnedTopics": [
+        "THREE.js",
+        "React Three Fiber",
+        "Blender",
+        "WebGL",
+        "Zustand"
+      ]
     },
     {
       "id": "fullstackdevelopmentdegree",
       "title": "FULL STACK",
-      "content": "TEST CONTENT"
+      "courseName": "Bachelor in full-stack development",
+      "term": "2020 - 2021",
+      "learnedTopics": [
+        "Spring boot",
+        "Web development",
+        "MVC",
+        "Javascript",
+        "Node.js",
+        "Css Frameworks"
+      ]
     },
     {
       "id": "computersciencedegree",
       "title": "COMPUTER SCIENCE",
-      "content": "TEST CONTENT"
+      "courseName": "Technological degree in computer science",
+      "term": "2019 - 2020",
+      "learnedTopics": [
+        "Java",
+        "Binary",
+        "Linux",
+        "C",
+        "SQL",
+        "PHP",
+        "UML",
+        "OOP"
+      ]
     },
     {
       "id": "mechanicsengineeringdegree",
       "title": "MECHANICS",
-      "content": "TEST CONTENT"
+      "courseName": "Technological degree in mechanics and aerospace techniques",
+      "term": "2017 - 2019",
+      "learnedTopics": ["Quality", "Electronics", "Mathematics"]
     }
   ]
 }
