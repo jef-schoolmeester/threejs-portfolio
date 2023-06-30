@@ -4,10 +4,6 @@ import { useEffect, useRef } from 'react'
 import { AmbientLight, DirectionalLight, Vector3 } from 'three'
 import Newspaper from './Newspaper'
 
-/**
- * COLORS
- */
-
 const LoadingScreenExperience = () => {
   const { camera } = useThree()
 
