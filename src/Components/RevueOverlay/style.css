@@ -57,24 +57,54 @@
 
 .revueOverlayTitleSection {
   padding: 0 3rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
 }
 
 .revueOverlayTitleSection h2 {
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin: 0.6em 0 0.5em 0;
+  text-transform: uppercase;
+  text-align: center;
+  flex: 3;
 }
 
 .revueOverlayTitleSection h3 {
   font-weight: 300;
+  font-size: 1rem;
   margin: 0;
+  flex: 1;
+}
+
+.revueOverlayTitleSection h4 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 1rem;
+  grid-column: 1 / 4;
+  text-align: center;
+}
+
+.revueOverlayTitleSection h3:last-of-type {
+  text-align: end;
 }
 
 .revueOverlayContentSection {
   padding: 1rem 3rem;
+}
+
+.revueOverlayContentSection ul {
+  list-style-type: none;
+  width: 90%;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.revueOverlayContentSection ul li {
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 .revueOverlayCloseSection {

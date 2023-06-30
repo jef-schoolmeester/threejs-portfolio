@@ -73,7 +73,9 @@
     {
       "id": "threejsjourney",
       "title": "THREE JS",
+      "degree": "Online course",
       "courseName": "Bruno Simon's THREE.JS Journey",
+      "school": "",
       "term": "2023 - 2023",
       "learnedTopics": [
         "THREE.js",
@@ -86,7 +88,9 @@
     {
       "id": "fullstackdevelopmentdegree",
       "title": "FULL STACK",
-      "courseName": "Bachelor in full-stack development",
+      "degree": "Bachelor",
+      "courseName": "Full-stack development",
+      "school": "Capitol university, Toulouse - France",
       "term": "2020 - 2021",
       "learnedTopics": [
         "Spring boot",
@@ -100,7 +104,9 @@
     {
       "id": "computersciencedegree",
       "title": "COMPUTER SCIENCE",
-      "courseName": "Technological degree in computer science",
+      "degree": "Technological degree",
+      "courseName": "Computer science",
+      "school": "Paul Sabatier university, Toulouse - France",
       "term": "2019 - 2020",
       "learnedTopics": [
         "Java",
@@ -116,9 +122,18 @@
     {
       "id": "mechanicsengineeringdegree",
       "title": "MECHANICS",
-      "courseName": "Technological degree in mechanics and aerospace techniques",
+      "degree": "Technological degree",
+      "courseName": "Mechanics and aerospace techniques",
+      "school": "Paul Sabatier university, Toulouse - France",
       "term": "2017 - 2019",
-      "learnedTopics": ["Quality", "Electronics", "Mathematics"]
+      "learnedTopics": [
+        "Quality",
+        "Electronics",
+        "Mathematics",
+        "Production methods",
+        "Material Sciences",
+        "Structural Design"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@ import data from '../../data.json'
 import { useSpring, animated } from 'react-spring'
 
 interface Props {
-  experienceId: string
+  educationId: string
   handleClose: () => void
 }
 
-const RevueOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
-  const experience = data.experiences.find((_) => _.id === experienceId)
+const RevueOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
+  const education = data.education.find((_) => _.id === educationId)
 
   const [opacityProps] = useSpring(
     () => ({
@@ -26,7 +26,7 @@ const RevueOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
     []
   )
 
-  if (!experience) return
+  if (!education) return
   return (
     <animated.div className="revueOverlayCenter" style={{ ...blurProps }}>
       <animated.div
@@ -35,17 +35,19 @@ const RevueOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
       >
         <span className="revueOverlayBorder" />
         <section className="revueOverlayTitleSection">
-          <h3>{experience.role}</h3>
-          <h2>{experience.title}</h2>
-          <h3>{experience.term}</h3>
+          <h3>{education.degree}</h3>
+          <h2>{education.courseName}</h2>
+          <h3>{education.term}</h3>
+          <h4>{education.school}</h4>
         </section>
         <span className="revueOverlayInnerBorder" />
-        <section
-          className="revueOverlayContentSection"
-          dangerouslySetInnerHTML={{
-            __html: experience.content,
-          }}
-        ></section>
+        <section className="revueOverlayContentSection">
+          <ul>
+            {education.learnedTopics.map((topic) => (
+              <li>{topic}</li>
+            ))}
+          </ul>
+        </section>
         <span className="revueOverlayInnerBorder" />
         <section className="revueOverlayCloseSection">
           <Button text="Close" onClick={handleClose} />
