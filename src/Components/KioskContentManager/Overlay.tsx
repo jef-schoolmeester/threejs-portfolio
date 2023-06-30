@@ -37,14 +37,14 @@ const KioskContentOverlay: React.FC<Props> = ({
           <h2>Experiences</h2>
         </section>
         <section
-          onClick={() => onContentFocus('projects')}
-          className={`kioskContentOverlaySection ${
+          // onClick={() => onContentFocus('projects')}
+          className={`kioskContentOverlaySection lockedKioskContentOverlaySection ${
             subContentId === 'projects'
               ? 'kioskContentOverlaySelectedSection'
               : ''
           }`}
         >
-          <h2>Projects</h2>
+          <h2>Projects 🔒</h2>
         </section>
         <section
           onClick={() => onContentFocus('education')}

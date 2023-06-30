@@ -33,6 +33,12 @@
   justify-content: left;
 }
 
+.lockedKioskContentOverlaySection {
+  color: #787878;
+  color: transparent;
+  text-shadow: 0 0 0 #787878;
+}
+
 .kioskContentOverlaySelectedSection {
   background-image: linear-gradient(to right, #705b49a0 0%, #00000000);
 }
