@@ -32,6 +32,7 @@ const Camera = () => {
       target={focusPoint}
       maxPolarAngle={Math.PI / 1.8}
       enableZoom={false}
+      enablePan={false}
     />
   )
 }
