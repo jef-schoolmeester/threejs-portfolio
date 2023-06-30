@@ -48,16 +48,16 @@ const Effects = () => {
   //   ior: { value: 1.45, min: 0, max: 2 },
   // })
 
-  const { color } = useControls('fog', {
-    color: { value: '#04060d' },
-  })
+  // const { color } = useControls('fog', {
+  //   color: { value: '#04060d' },
+  // })
 
   return (
     <>
       {/* <Sky mieCoefficient={0.005} /> */}
       {/* <Environment preset="forest" /> */}
-      <color args={[color]} attach="background" />
-      <fog args={[color, 25, 85]} attach="fog" />
+      <color args={['#04060d']} attach="background" />
+      <fog args={['#04060d', 25, 85]} attach="fog" />
       {/* <EffectComposer>
         <SSR {...ssrProps} />
       </EffectComposer> */}
@@ -78,6 +78,10 @@ const Effects = () => {
           side={2}
         />
       </mesh>
+
+      {/* <EffectComposer>
+        <DepthOfField blur={10} focusDistance={10} />
+      </EffectComposer> */}
     </>
   )
 }
