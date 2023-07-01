@@ -1,6 +1,8 @@
 import data from '../../data.json'
 import { useContentStore } from '../../stores/contentStore'
 import ContentOverlay from '../ContentOverlay'
+import NewspaperOverlay from '../NewspaperOverlay'
+import RevueOverlay from '../RevueOverlay'
 
 const ContentManager = () => {
   const content = useContentStore((state) => state.content)
@@ -9,9 +11,12 @@ const ContentManager = () => {
   if (!content.isContentVisible) return null
   let title: string
   let contentData: string
+
   const [main, sub] = content.contentId.split('#') as
     | ['summary', undefined]
     | ['experiences', string]
+    | ['education', string]
+    | ['projects', string]
 
   if (typeof sub === 'undefined') {
     title = data[main].title
@@ -22,13 +27,24 @@ const ContentManager = () => {
     title = subContent.title
     contentData = subContent.content
   }
-  return (
-    <ContentOverlay
-      handleClose={clearContent}
-      title={title}
-      content={contentData}
-    />
-  )
+
+  switch (main) {
+    case 'summary':
+      return (
+        <ContentOverlay
+          handleClose={clearContent}
+          title={title}
+          content={contentData}
+        />
+      )
+    case 'experiences':
+      return <NewspaperOverlay handleClose={clearContent} experienceId={sub} />
+    case 'education':
+    case 'projects':
+      return <RevueOverlay handleClose={clearContent} educationId={sub} />
+    default:
+      return null
+  }
 }
 
 export default ContentManager
