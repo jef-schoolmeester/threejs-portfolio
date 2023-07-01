@@ -11,22 +11,22 @@ const LoadingScreenExperience = () => {
   const light2 = useRef<DirectionalLight>(null!)
   const light3 = useRef<AmbientLight>(null!)
 
-  const cameraControls = useControls('camera', {
-    y: { min: 0, max: 10, value: 0.4 },
-    z: { min: 0, max: 10, value: 0.6 },
-  })
+  // const cameraControls = useControls('camera', {
+  //   y: { min: 0, max: 10, value: 0.4 },
+  //   z: { min: 0, max: 10, value: 0.6 },
+  // })
 
   useEffect(() => {
     camera.lookAt(new Vector3(0, 0, -0.4))
-    camera.position.y = cameraControls.y
-    camera.position.z = cameraControls.z
+    camera.position.y = 0.4
+    camera.position.z = 0.6
   }, [])
 
-  useFrame(() => {
-    camera.position.y = cameraControls.y
-    camera.position.z = cameraControls.z
-    camera.lookAt(new Vector3(0, 0, -0.4))
-  })
+  // useFrame(() => {
+  //   camera.position.y = cameraControls.y
+  //   camera.position.z = cameraControls.z
+  //   camera.lookAt(new Vector3(0, 0, -0.4))
+  // })
 
   return (
     <>
