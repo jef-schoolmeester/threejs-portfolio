@@ -35,13 +35,15 @@ const RevueOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
       >
         <span className="revueOverlayBorder" />
         <section className="revueOverlayTitleSection">
-          <h3>{education.degree}</h3>
           <h2>{education.courseName}</h2>
-          <h3>{education.term}</h3>
-          <h4>{education.school}</h4>
+          <div>
+            <h3>{education.term}</h3>
+            <h3>{education.school}</h3>
+          </div>
         </section>
         <span className="revueOverlayInnerBorder" />
         <section className="revueOverlayContentSection">
+          {education.degree}
           <ul>
             {education.learnedTopics.map((topic) => (
               <li>{topic}</li>
