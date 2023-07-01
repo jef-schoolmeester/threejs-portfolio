@@ -36,7 +36,10 @@ const ContentOverlay: React.FC<Props> = ({ title, content, handleClose }) => {
           <h2>{title}</h2>
         </section>
         <span className="contentOverlayInnerBorder" />
-        <section className="contentOverlayContentSection">{content}</section>
+        <section
+          className="contentOverlayContentSection"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         <span className="contentOverlayInnerBorder" />
         <section className="contentOverlayCloseSection">
           <Button text="Close" onClick={handleClose} />
