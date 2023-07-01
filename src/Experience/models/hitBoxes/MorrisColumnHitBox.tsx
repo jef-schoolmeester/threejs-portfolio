@@ -28,8 +28,9 @@ const MorrisColumnHitBox: React.FC<Props> = ({ isActive }) => {
     clearHoverMessage()
   }
 
-  const onFocus = () => {
+  const onFocus = (event: ThreeEvent<MouseEvent>) => {
     if (!isActive) return
+    event.stopPropagation()
     startTransition({
       to: new Vector3(6.8, 1.8, 0.4),
       focusPoint: new Vector3(0, 3, 2),

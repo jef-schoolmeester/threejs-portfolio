@@ -28,8 +28,9 @@ const KioskHitBox: React.FC<Props> = ({ isActive }) => {
     clearHoverMessage()
   }
 
-  const onFocus = () => {
+  const onFocus = (event: ThreeEvent<MouseEvent>) => {
     if (!isActive) return
+    event.stopPropagation()
     startTransition({
       to: new Vector3(2, 1.8, -0.7),
       focusPoint: new Vector3(-0.5, 2.1, -0.7), // experience section focus

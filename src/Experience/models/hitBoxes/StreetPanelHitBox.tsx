@@ -25,8 +25,9 @@ const StreetPanelHitBox: React.FC<Props> = ({ isActive }) => {
     clearHoverMessage()
   }
 
-  const onFocus = () => {
+  const onFocus = (event: ThreeEvent<MouseEvent>) => {
     if (!isActive) return
+    event.stopPropagation()
     setHoverActive(false)
     clearHoverMessage()
     selectContent('summary')
