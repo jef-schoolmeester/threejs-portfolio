@@ -64,6 +64,7 @@ const LoadingScreen = () => {
           display: 'flex',
           position: 'relative',
           justifyContent: 'center',
+          marginTop: '1rem',
         }}
       >
         <animated.div style={{ ...progressProps, position: 'absolute' }}>
