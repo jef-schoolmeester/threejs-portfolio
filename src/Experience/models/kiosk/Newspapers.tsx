@@ -12,7 +12,7 @@ const experiences = data.experiences
 const education = data.education
 
 const Newspapers = () => {
-  const { nodes }: any = useGLTF('./models/Kiosk/Newspapers-2.glb')
+  const { nodes }: any = useGLTF('./models/Kiosk/Newspapers.glb')
 
   const newspapersTexture = useTexture('./textures/FrontNewspapers-min.jpg')
   newspapersTexture.flipY = false
