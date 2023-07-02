@@ -3,6 +3,7 @@ import Decoration from './decoration'
 import Column from './morrisColumn/Column'
 import Kiosk from './kiosk'
 import HitBoxManager from './hitBoxes/HitBoxManager'
+import Posters from './posters'
 
 const Models = () => {
   return (
@@ -12,6 +13,7 @@ const Models = () => {
       <Column />
       <Kiosk />
       <HitBoxManager />
+      <Posters />
     </>
   )
 }
