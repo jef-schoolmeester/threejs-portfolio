@@ -48,7 +48,6 @@ const ContactPoster: React.FC<Props> = ({ metalness, roughness, geometry }) => {
         transform
         prepend
         geometry={<planeGeometry args={[1.2, 1.7]} />}
-        distanceFactor={5}
         wrapperClass="contactHtmlContainer"
       >
         <ContactContent />
