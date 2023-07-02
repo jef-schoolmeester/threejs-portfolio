@@ -11,7 +11,7 @@ const KioskContentOverlay: React.FC<Props> = ({
   subContentId,
   onContentFocus,
 }) => {
-  const [props, api] = useSpring(
+  const [props] = useSpring(
     () => ({
       from: { opacity: 0 },
       to: { opacity: 1 },

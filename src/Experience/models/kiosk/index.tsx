@@ -1,4 +1,3 @@
-import { ThreeEvent } from '@react-three/fiber'
 import KioskStructure from './KioskStructure'
 import NewspaperRack from './NewspaperRack'
 import NewspaperStacks from './NewspaperStacks'

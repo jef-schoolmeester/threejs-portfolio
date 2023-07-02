@@ -1,5 +1,4 @@
 import { Environment, MeshReflectorMaterial } from '@react-three/drei'
-import { useControls } from 'leva'
 
 const Effects = () => {
   // const skyparams = useControls('', {

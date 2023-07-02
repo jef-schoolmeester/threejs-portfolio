@@ -1,5 +1,4 @@
-import { useFrame, useThree } from '@react-three/fiber'
-import { useControls } from 'leva'
+import { useThree } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import { AmbientLight, DirectionalLight, Vector3 } from 'three'
 import Newspaper from './Newspaper'

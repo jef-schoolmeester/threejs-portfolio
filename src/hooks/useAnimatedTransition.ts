@@ -24,7 +24,7 @@ export const useAnimatedTransition = () => {
   const endTransition = useTransitionStore((state) => state.endTransition)
   const { camera } = useThree()
 
-  const [props, api] = useSpring(() => ({
+  const [, api] = useSpring(() => ({
     position: [-1, -1, -1],
     focusPoint: [-1, -1, -1],
     onChange: (e) => {

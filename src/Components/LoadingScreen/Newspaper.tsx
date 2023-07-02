@@ -2,7 +2,7 @@ import { useProgress } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useSpring } from 'react-spring'
-import { DoubleSide, InstancedMesh, Object3D, Vector3 } from 'three'
+import { DoubleSide, InstancedMesh, Object3D } from 'three'
 
 const NEWSPAPER_COUNT = 100
 const newspaperWidth = 0.3
@@ -49,7 +49,7 @@ const Newspaper = () => {
   }, [])
 
   // const angle = Math.min((offset * Math.PI) / 2 + Math.PI / 4, Math.PI)
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!shouldAnimationStart) return
     for (let i = 0; i < NEWSPAPER_COUNT; i++) {
       if (i >= props.loadingProgress.get()) continue
