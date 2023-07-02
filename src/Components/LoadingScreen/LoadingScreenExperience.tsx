@@ -17,16 +17,10 @@ const LoadingScreenExperience = () => {
   // })
 
   useEffect(() => {
-    camera.lookAt(new Vector3(0, 0, -0.4))
     camera.position.y = 0.4
     camera.position.z = 0.6
+    camera.lookAt(new Vector3(0, 0, -0.4))
   }, [])
-
-  // useFrame(() => {
-  //   camera.position.y = cameraControls.y
-  //   camera.position.z = cameraControls.z
-  //   camera.lookAt(new Vector3(0, 0, -0.4))
-  // })
 
   return (
     <>
