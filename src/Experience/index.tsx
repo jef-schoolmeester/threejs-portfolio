@@ -23,7 +23,6 @@ const Experience = () => {
       )}
       <Models />
       <Camera />
-      <Environment preset="forest" />
       <Effects />
     </>
   )

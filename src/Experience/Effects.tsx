@@ -1,4 +1,4 @@
-import { MeshReflectorMaterial } from '@react-three/drei'
+import { Environment, MeshReflectorMaterial } from '@react-three/drei'
 import { useControls } from 'leva'
 
 const Effects = () => {
@@ -54,13 +54,9 @@ const Effects = () => {
 
   return (
     <>
-      {/* <Sky mieCoefficient={0.005} /> */}
-      {/* <Environment preset="forest" /> */}
+      <Environment preset="forest" />
       <color args={['#04060d']} attach="background" />
       <fog args={['#04060d', 25, 85]} attach="fog" />
-      {/* <EffectComposer>
-        <SSR {...ssrProps} />
-      </EffectComposer> */}
       <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[200, 200]} />
         <MeshReflectorMaterial
