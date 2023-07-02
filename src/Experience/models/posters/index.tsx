@@ -1,17 +1,21 @@
 import { Text3D, useGLTF } from '@react-three/drei'
+import ContactPoster from './ContactPoster'
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 
 const Posters = () => {
   const { nodes }: any = useGLTF('./models/Posters.glb')
-
-  const metalness = 1
-  const roughness = 0.3
-
   const texture = useLoader(TextureLoader, './textures/matcaps/FancyText.jpg')
 
+  const metalness = 1
+  const roughness = 0.5
   return (
-    <group dispose={null}>
+    <>
+      <ContactPoster
+        geometry={nodes.Side.geometry}
+        metalness={metalness}
+        roughness={roughness}
+      />
       <mesh
         geometry={nodes.BackLeft.geometry}
         material={nodes.BackLeft.material}
@@ -50,18 +54,7 @@ const Posters = () => {
         <meshMatcapMaterial matcap={texture} />
         Jef Schoolmeester
       </Text3D>
-      <mesh
-        geometry={nodes.Side.geometry}
-        material={nodes.Side.material}
-        position={[0, 1.6, -2.42]}
-      >
-        <meshStandardMaterial
-          color="#070707"
-          metalness={metalness}
-          roughness={roughness}
-        />
-      </mesh>
-    </group>
+    </>
   )
 }
 
