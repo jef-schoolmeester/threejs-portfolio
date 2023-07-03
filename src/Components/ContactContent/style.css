@@ -11,13 +11,12 @@
   width: 2.5rem;
 
   user-select: none;
-  pointer-events: all;
   background-color: #ece0d0;
-  /* background-color: red; */
   margin: 0;
 }
 
 .contactContentContainer a {
+  pointer-events: all;
   text-decoration: none;
   color: #121212;
   text-transform: uppercase;

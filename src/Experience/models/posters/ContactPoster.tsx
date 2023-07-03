@@ -41,6 +41,7 @@ const ContactPoster: React.FC<Props> = ({ metalness, roughness, geometry }) => {
         />
       </mesh>
       <Html
+        pointerEvents="none"
         position={[0, 1.5, -2.45]}
         rotation-y={Math.PI}
         zIndexRange={[10, 0]}
