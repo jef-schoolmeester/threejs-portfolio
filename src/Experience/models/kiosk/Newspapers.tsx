@@ -10,6 +10,7 @@ import Revue from './Revue'
 const material = new MeshBasicMaterial()
 const experiences = data.experiences
 const education = data.education
+const projects = data.projects
 
 const Newspapers = () => {
   const { nodes }: any = useGLTF('./models/Kiosk/Newspapers.glb')
@@ -63,15 +64,19 @@ const Newspapers = () => {
           />
         )
       })}
-      {topRevuesKeys.map((key) => {
+      {topRevuesKeys.map((key, index) => {
         const node = nodes[key]
         return (
-          <mesh
+          <Revue
             key={key}
             geometry={node.geometry}
             material={material}
             position={node.position}
             rotation={node.rotation}
+            text={projects[index]?.title}
+            id={projects[index]?.id}
+            textAlign="right"
+            disabled
           />
         )
       })}

@@ -12,6 +12,8 @@ interface Props {
   rotation: Euler
   text?: string
   id?: string
+  textAlign?: 'left' | 'right' | 'center'
+  disabled?: boolean
 }
 
 const Revue: React.FC<Props> = ({
@@ -21,6 +23,8 @@ const Revue: React.FC<Props> = ({
   rotation,
   text,
   id,
+  textAlign = 'center',
+  disabled,
 }) => {
   const [isHovered, setHovered] = useState<boolean>(false)
   const selectContent = useContentStore((state) => state.selectContent)
@@ -39,7 +43,8 @@ const Revue: React.FC<Props> = ({
     if (
       !focusedContent.isContentVisible ||
       !focusedContent.contentId.includes('kiosk') ||
-      !id
+      !id ||
+      disabled
     )
       return
     selectContent(`education#${id}`)
@@ -70,7 +75,7 @@ const Revue: React.FC<Props> = ({
           letterSpacing={-0.09}
           anchorY="top"
           anchorX="center"
-          textAlign="center"
+          textAlign={textAlign}
         >
           {text}
         </Text>
