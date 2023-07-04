@@ -35,9 +35,11 @@ const NewspaperOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
       >
         <span className="newspaperOverlayBorder" />
         <section className="newspaperOverlayTitleSection">
-          <h3>{experience.role}</h3>
           <h2>{experience.title}</h2>
-          <h3>{experience.term}</h3>
+          <div>
+            <h3>{experience.role}</h3>
+            <h3>{experience.term}</h3>
+          </div>
         </section>
         <span className="newspaperOverlayInnerBorder" />
         <section

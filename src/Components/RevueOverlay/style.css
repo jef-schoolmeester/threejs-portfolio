@@ -56,7 +56,7 @@
 }
 
 .revueOverlayTitleSection {
-  padding: 0 3rem;
+  padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@
 .revueOverlayTitleSection h2 {
   font-weight: 300;
   font-size: 1.6rem;
-  margin: 0.6em 0 0.5em 0;
+  margin: 0;
   text-transform: uppercase;
   flex: 3;
 }
