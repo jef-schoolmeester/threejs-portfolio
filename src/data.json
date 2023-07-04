@@ -66,6 +66,26 @@
     {
       "id": "foodify",
       "title": "FOODIFY",
+      "content": ""
+    },
+    {
+      "id": "portfolio",
+      "title": "3D PORTFOLIO",
+      "content": ""
+    },
+    {
+      "id": "react-patterns",
+      "title": "REACT PATTERNS",
+      "content": ""
+    },
+    {
+      "id": "undercooked",
+      "title": "UNDER COOKED",
+      "content": ""
+    },
+    {
+      "id": "portfolio",
+      "title": "REACT SCROLL",
       "content": "TEST CONTENT"
     }
   ],
