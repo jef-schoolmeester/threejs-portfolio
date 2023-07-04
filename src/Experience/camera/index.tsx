@@ -1,5 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { useTransitionStore } from '../../stores/transitionStore'
+import { useContentStore } from '../../stores/contentStore'
 // import { useControls } from 'leva'
 // import { useFrame } from '@react-three/fiber'
 
@@ -19,6 +20,8 @@ const Camera = () => {
   //   camera.lookAt(centerX, centerY, centerZ)
   // })
 
+  const { isContentVisible } = useContentStore((state) => state.focusedContent)
+
   const focusPoint = useTransitionStore(
     (state) => state.currentState.focusPoint
   )
@@ -33,6 +36,7 @@ const Camera = () => {
       maxPolarAngle={Math.PI / 1.8}
       enableZoom={false}
       enablePan={false}
+      enableRotate={!isContentVisible}
     />
   )
 }
