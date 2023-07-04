@@ -8,10 +8,11 @@ interface TransitionState {
   currentState: CameraState
   startTransition: (to: Destination) => void
   endTransition: () => void
+  endInitialTransition: () => void
 }
 
 export const useTransitionStore = create<TransitionState>()((set) => ({
-  isTransitionActive: false,
+  isTransitionActive: true,
   destination: undefined,
   currentState: {
     focusPoint: sceneCenter,
@@ -31,6 +32,12 @@ export const useTransitionStore = create<TransitionState>()((set) => ({
           focusPoint: focusPoint,
           position: to,
         },
+      }
+    }),
+  endInitialTransition: () =>
+    set(() => {
+      return {
+        isTransitionActive: false,
       }
     }),
 }))
