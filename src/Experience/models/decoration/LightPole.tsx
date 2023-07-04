@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 
 const LightPole = () => {
   const { nodes }: any = useGLTF('./models/LightPole.glb')
-  const LightPoleTexture = useTexture('./textures/LightPole-min.jpg')
+  const LightPoleTexture = useTexture('./textures/Lightpole.jpg')
   LightPoleTexture.flipY = false
   return (
     <group>

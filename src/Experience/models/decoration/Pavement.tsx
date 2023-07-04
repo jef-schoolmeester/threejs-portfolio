@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 
 const Pavement = () => {
   const { nodes }: any = useGLTF('./models/Pavement.glb')
-  const pavementTexture = useTexture('./textures/Pavement-min.jpg')
+  const pavementTexture = useTexture('./textures/Pavement.jpg')
   pavementTexture.flipY = false
   return (
     <group>
