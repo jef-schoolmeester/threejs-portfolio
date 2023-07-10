@@ -2,7 +2,7 @@ import data from '../../data.json'
 import { useContentStore } from '../../stores/contentStore'
 import ContentOverlay from '../ContentOverlay'
 import NewspaperOverlay from '../NewspaperOverlay'
-import RevueOverlay from '../RevueOverlay'
+import EducationOverlay from '../EducationOverlay'
 
 const ContentManager = () => {
   const content = useContentStore((state) => state.content)
@@ -28,8 +28,9 @@ const ContentManager = () => {
     case 'experiences':
       return <NewspaperOverlay handleClose={clearContent} experienceId={sub} />
     case 'education':
+      return <EducationOverlay handleClose={clearContent} educationId={sub} />
     case 'projects':
-      return <RevueOverlay handleClose={clearContent} educationId={sub} />
+      return null
     default:
       return null
   }

@@ -33,26 +33,50 @@ const NewspaperOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
         style={{ ...opacityProps }}
         className="newspaperOverlayContainer"
       >
-        <span className="newspaperOverlayBorder" />
-        <section className="newspaperOverlayTitleSection">
-          <h2>{experience.title}</h2>
+        <header className="newspaperOverlayHeader">
           <div>
-            <h3>{experience.role}</h3>
             <h3>{experience.term}</h3>
+            <h3>{experience.location}</h3>
           </div>
-        </section>
-        <span className="newspaperOverlayInnerBorder" />
-        <section
-          className="newspaperOverlayContentSection"
-          dangerouslySetInnerHTML={{
-            __html: experience.content,
-          }}
-        ></section>
-        <span className="newspaperOverlayInnerBorder" />
-        <section className="newspaperOverlayCloseSection">
-          <Button text="Close" onClick={handleClose} />
-        </section>
-        <span className="newspaperOverlayBorder" />
+          <h2>{experience.title}</h2>
+        </header>
+        <main className="newspaperOverlayMain">
+          <section className="newspaperOverlayContent">
+            <h2>{experience.role}</h2>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: experience.content,
+              }}
+            />
+          </section>
+          <aside className="newspaperOverlayAside">
+            <ul>
+              {experience.learnedConcepts?.map((concept) => (
+                <li>{concept}</li>
+              ))}
+            </ul>
+          </aside>
+        </main>
+        <footer className="newspaperOverlayFooter">
+          <Button
+            style={{ color: '#121212', borderColor: '#121212' }}
+            text="Close"
+            onClick={handleClose}
+          />
+        </footer>
+      </animated.div>
+      <animated.div
+        style={{ ...opacityProps }}
+        className="newspaperOverlayBackpage"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+        officiis cumque voluptatum reprehenderit facilis provident iusto
+        asperiores. Libero doloremque neque consequuntur temporibus ducimus
+        similique a ipsum sunt, atque aspernatur doloribus! Ad omnis hic
+        veritatis laboriosam laborum sit exercitationem provident, enim deleniti
+        obcaecati sequi molestiae debitis aliquam itaque libero sunt eius
+        aspernatur. Ad corrupti ipsum eveniet accusamus suscipit quibusdam
+        obcaecati totam.
       </animated.div>
     </animated.div>
   )

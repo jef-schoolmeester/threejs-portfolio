@@ -26,5 +26,5 @@
 }
 
 .contactContentContainer a:hover {
-  cursor: none;
+  cursor: pointer;
 }

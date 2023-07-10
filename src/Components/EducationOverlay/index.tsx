@@ -8,7 +8,7 @@ interface Props {
   handleClose: () => void
 }
 
-const RevueOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
+const EducationOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
   const education = data.education.find((_) => _.id === educationId)
 
   const [opacityProps] = useSpring(
@@ -28,36 +28,35 @@ const RevueOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
 
   if (!education) return
   return (
-    <animated.div className="revueOverlayCenter" style={{ ...blurProps }}>
+    <animated.div className="educationOverlayCenter" style={{ ...blurProps }}>
       <animated.div
         style={{ ...opacityProps }}
-        className="revueOverlayContainer"
+        className="educationOverlayContainer"
       >
-        <span className="revueOverlayBorder" />
-        <section className="revueOverlayTitleSection">
+        <span className="educationOverlayTopBand" />
+        <header className="educationOverlayHeader">
+          <h3>{education.term}</h3>
+          <h3>{education.school}</h3>
+          <h2>{education.degree}</h2>
+        </header>
+        <main className="educationOverlayContent">
           <h2>{education.courseName}</h2>
-          <div>
-            <h3>{education.term}</h3>
-            <h3>{education.school}</h3>
-          </div>
-        </section>
-        <span className="revueOverlayInnerBorder" />
-        <section className="revueOverlayContentSection">
-          {education.degree}
           <ul>
             {education.learnedTopics.map((topic) => (
               <li>{topic}</li>
             ))}
           </ul>
-        </section>
-        <span className="revueOverlayInnerBorder" />
-        <section className="revueOverlayCloseSection">
+        </main>
+        <footer className="educationOverlayFooter">
           <Button text="Close" onClick={handleClose} />
-        </section>
-        <span className="revueOverlayBorder" />
+        </footer>
       </animated.div>
+      <animated.div
+        style={{ ...opacityProps }}
+        className="educationOverlayBackpage"
+      />
     </animated.div>
   )
 }
 
-export default RevueOverlay
+export default EducationOverlay
