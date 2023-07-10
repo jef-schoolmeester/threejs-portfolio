@@ -1,6 +1,7 @@
 import { OrbitControls } from '@react-three/drei'
 import { useTransitionStore } from '../../stores/transitionStore'
 import { useContentStore } from '../../stores/contentStore'
+import { useMemo } from 'react'
 // import { useControls } from 'leva'
 // import { useFrame } from '@react-three/fiber'
 
@@ -20,7 +21,9 @@ const Camera = () => {
   //   camera.lookAt(centerX, centerY, centerZ)
   // })
 
-  const { isContentVisible } = useContentStore((state) => state.focusedContent)
+  const { isContentVisible, contentId } = useContentStore(
+    (state) => state.focusedContent
+  )
 
   const focusPoint = useTransitionStore(
     (state) => state.currentState.focusPoint
@@ -29,14 +32,19 @@ const Camera = () => {
     (state) => state.isTransitionActive
   )
 
+  const isRotationEnabled = useMemo(
+    () => !isContentVisible || !contentId.includes('kiosk'),
+    [contentId, isContentVisible]
+  )
+
   return (
     <OrbitControls
       enabled={!isTransitionActive}
       target={focusPoint}
       maxPolarAngle={Math.PI / 1.8}
-      enableZoom={false}
+      // enableZoom={false}
       enablePan={false}
-      enableRotate={!isContentVisible}
+      enableRotate={isRotationEnabled}
     />
   )
 }
