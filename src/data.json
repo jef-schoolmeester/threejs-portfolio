@@ -106,27 +106,77 @@
     {
       "id": "foodify",
       "title": "FOODIFY",
-      "content": ""
+      "term": "2023 - ongoing",
+      "image": "Foodify",
+      "link": {
+        "text": "GitHub",
+        "url": "https://github.com/jef-schoolmeester/recipe-platform"
+      },
+      "content": [
+        "\"Foodify\" is a cookbook app designed to provide users with an intuitive and user-friendly experience. Although still a work in progress, one exciting feature in development is a Tinder-like functionality that assists users in finding the perfect recipe to cook.",
+        "Through the development of Foodify, I will have to master concepts I'm not familiar with such as CI/CD or cache management. Since it isn't a small project, I will have to choose an architecture considering scalability, maintainability, and code organization.",
+        "<ul><li>Next.js</li><li>Typescript</li><li>MongoDB</li><li>Redis</li><li>Docker</li></ul>"
+      ]
     },
     {
       "id": "portfolio",
       "title": "3D PORTFOLIO",
-      "content": ""
+      "term": "2023 - ongoing",
+      "image": "Portfolio",
+      "link": {
+        "text": "GitHub",
+        "url": "https://github.com/jef-schoolmeester/threejs-portfolio"
+      },
+      "content": [
+        "This project is an interactive 3D representation of a newspaper kiosk. Inspired by the significance of physical kiosks as sources of information in the pre-internet era, this project aims to bring a unique and engaging experience.",
+        "I had the opportunity to learn many technologies. I delved into Three.js, learning new concepts like shaders, postprocessing, and 3D user experience. Additionally, I learned 3D modeling with Blender.",
+        "<ul><li>Three.js</li><li>React Three Fiber</li><li>Blender</li><li>Zustand</li><li>Typescript</li></ul>"
+      ]
     },
     {
       "id": "react-patterns",
       "title": "REACT PATTERNS",
-      "content": ""
+      "term": "2023 - ongoing",
+      "image": "ReactPatterns",
+      "link": {
+        "text": "GitHub",
+        "url": "https://github.com/jef-schoolmeester/react-patterns"
+      },
+      "content": [
+        "\"React Patterns\" is a project where I explore various design and performance patterns and implement them using React. It serves as a practical guide to understanding and applying different patterns in real-world scenarios.",
+        "This project helped me to learn various design patterns. Finding the right example for each pattern also showed me when I should or shouldn't use these patterns.",
+        "<ul><li>Vite</li><li>React</li><li>Typescript</li><li>Sass</li><li>CSS Modules</li></ul>"
+      ]
     },
     {
-      "id": "undercooked",
-      "title": "UNDER COOKED",
-      "content": ""
-    },
-    {
-      "id": "portfolio",
+      "id": "react-scroll",
       "title": "REACT SCROLL",
-      "content": "TEST CONTENT"
+      "term": "2021 - 2021",
+      "image": "ReactScroll",
+      "link": {
+        "text": "GitHub",
+        "url": "https://github.com/jef-schoolmeester/react-scroll-animation"
+      },
+      "content": [
+        "I wanted to experiment with react and interactive animations, so I came up with this simple project. The application consists of one page where a large round text in the background rotates as the user scrolls.",
+        "While this project may not have presented significant technical challenges, it provided an opportunity for continuous improvement and practice. Working with React, and Sass allowed me to further strengthen my skills in building interactive user interfaces.",
+        "<ul><li>React</li><li>Gatsby</li><li>Typescript</li><li>Sass</li></ul>"
+      ]
+    },
+    {
+      "id": "cryptowallet",
+      "title": "CRYPTO WALLET",
+      "term": "2020 - 2020",
+      "image": "CryptoWallet",
+      "link": {
+        "text": "GitHub",
+        "url": "https://github.com/jef-schoolmeester/crypto-wallet-app"
+      },
+      "content": [
+        "The Crypto Wallet app allows you to manage your cryptocurrency portfolio, keep track of its performance, and access your transaction history. Additionally, you can monitor the top 100 popular cryptocurrencies and perform buying or selling transactions.",
+        "I had the opportunity to expand my skill set. Firstly, I learned to use chart libraries and visually showcase data. Then, I connected the app to an external API to fetch real-time market data and learned how to cache these results.",
+        "<ul><li>React</li><li>Express.js</li><li>React chart</li><li>Material.ui</li><li>MySQL</li></ul>"
+      ]
     }
   ],
   "education": [
