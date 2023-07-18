@@ -75,8 +75,8 @@ const Newspapers = () => {
             rotation={node.rotation}
             text={projects[index]?.title}
             id={projects[index]?.id}
+            type="projects"
             textAlign="right"
-            disabled
           />
         )
       })}
@@ -103,6 +103,7 @@ const Newspapers = () => {
             rotation={node.rotation}
             text={education[index]?.title}
             id={education[index]?.id}
+            type="education"
           />
         )
       })}

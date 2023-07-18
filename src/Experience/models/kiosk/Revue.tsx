@@ -11,6 +11,7 @@ interface Props {
   position: Vector3
   rotation: Euler
   text?: string
+  type: 'education' | 'projects'
   id?: string
   textAlign?: 'left' | 'right' | 'center'
   disabled?: boolean
@@ -22,6 +23,7 @@ const Revue: React.FC<Props> = ({
   position,
   rotation,
   text,
+  type,
   id,
   textAlign = 'center',
   disabled,
@@ -47,7 +49,7 @@ const Revue: React.FC<Props> = ({
       disabled
     )
       return
-    selectContent(`education#${id}`)
+    selectContent(`${type}#${id}`)
   }
 
   return (

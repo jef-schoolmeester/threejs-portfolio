@@ -3,6 +3,7 @@ import { useContentStore } from '../../stores/contentStore'
 import ContentOverlay from '../ContentOverlay'
 import NewspaperOverlay from '../NewspaperOverlay'
 import EducationOverlay from '../EducationOverlay'
+import ProjectOverlay from '../ProjectOverlay'
 
 const ContentManager = () => {
   const content = useContentStore((state) => state.content)
@@ -30,7 +31,7 @@ const ContentManager = () => {
     case 'education':
       return <EducationOverlay handleClose={clearContent} educationId={sub} />
     case 'projects':
-      return null
+      return <ProjectOverlay handleClose={clearContent} projectId={sub} />
     default:
       return null
   }
