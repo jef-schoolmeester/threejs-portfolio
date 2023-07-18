@@ -15,6 +15,7 @@
   height: auto;
   color: #fafafa;
   pointer-events: all;
+  user-select: none;
 }
 
 .kioskContentOverlayBorder {
