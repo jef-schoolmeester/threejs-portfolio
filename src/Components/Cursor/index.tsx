@@ -20,7 +20,7 @@ const Cursor = () => {
         transform: `translate(calc(${corrdinates[0]}px - 50%), calc(${corrdinates[1]}px - 50%))`,
       }}
     >
-      {cursorContent}
+      <div className="customCursorInnerContainer">{cursorContent}</div>
     </div>
   )
 }
