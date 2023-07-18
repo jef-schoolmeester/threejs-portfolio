@@ -16,7 +16,6 @@
 }
 
 .contactContentContainer a {
-  pointer-events: all;
   text-decoration: none;
   color: #121212;
   text-transform: uppercase;

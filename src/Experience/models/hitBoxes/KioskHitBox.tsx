@@ -50,6 +50,7 @@ const KioskHitBox: React.FC<Props> = ({ isActive }) => {
         onPointerMove={onHover}
         onClick={onFocus}
         scale={scale}
+        name="kioskHitBox"
       >
         <boxGeometry args={[2, 3.3, 3.4]} />
         <meshBasicMaterial visible={false} />

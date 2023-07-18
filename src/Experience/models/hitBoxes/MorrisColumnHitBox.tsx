@@ -48,6 +48,7 @@ const MorrisColumnHitBox: React.FC<Props> = ({ isActive }) => {
       onPointerOut={offHover}
       onPointerMove={onHover}
       onClick={onFocus}
+      name="morrisColumnHitBox"
     >
       <cylinderGeometry args={[1, 1, 5.6, 6]} />
       <meshBasicMaterial visible={false} />

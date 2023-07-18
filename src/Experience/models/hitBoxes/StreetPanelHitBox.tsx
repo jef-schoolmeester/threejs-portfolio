@@ -41,6 +41,7 @@ const StreetPanelHitBox: React.FC<Props> = ({ isActive }) => {
       onPointerOut={offHover}
       onPointerMove={onHover}
       onClick={onFocus}
+      name="streetPanelHitBox"
     >
       <boxGeometry args={[0.3, 1.05, 0.7]} />
       <meshBasicMaterial visible={false} />
