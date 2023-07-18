@@ -1,6 +1,9 @@
 import { create } from 'zustand'
 
 interface ContentState {
+  screenType: 'mouse' | 'touch'
+  setScreenType: (type: 'mouse' | 'touch') => void
+
   isLoadingScreenVisible: boolean
   enterSite: () => void
 
@@ -18,6 +21,9 @@ interface ContentState {
 }
 
 export const useContentStore = create<ContentState>()((set) => ({
+  screenType: 'mouse',
+  setScreenType: (type: 'mouse' | 'touch') => set(() => ({ screenType: type })),
+
   isLoadingScreenVisible: true,
   enterSite: () => set(() => ({ isLoadingScreenVisible: false })),
 

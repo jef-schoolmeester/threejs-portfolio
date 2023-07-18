@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useHoverStore } from '../../stores/hoverStore'
 import './style.css'
+import { useContentStore } from '../../stores/contentStore'
 
 const Cursor = () => {
+  const screenType = useContentStore((state) => state.screenType)
   const cursorContent = useHoverStore((state) => state.hoverMessage)
   const isHoverActive = useHoverStore((state) => state.isHoverActive)
-  const [corrdinates, setCoordinates] = useState([0, 0])
+  const [corrdinates, setCoordinates] = useState([-20, -20])
 
   useEffect(() => {
     window.addEventListener('mousemove', (event) => {
@@ -13,6 +15,7 @@ const Cursor = () => {
     })
   }, [])
 
+  if (screenType === 'touch') return null
   return (
     <div
       className={`customCursor ${isHoverActive ? 'customCursorActive' : ''}`}

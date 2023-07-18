@@ -1,7 +1,7 @@
 import { useProgress } from '@react-three/drei'
 
 import './style.css'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import Button from '../Button'
 import { useContentStore } from '../../stores/contentStore'
@@ -11,9 +11,11 @@ import LoadingScreenExperience from './LoadingScreenExperience'
 const totalObjectsToLoad = 37
 
 const LoadingScreen = () => {
+  const buttonRef = useRef<HTMLDivElement>(null!)
   const [shouldDisplayEnterButton, setEnterButtonDisplay] = useState(false)
   const progress = useProgress()
   const enterSite = useContentStore((state) => state.enterSite)
+  const setScreenType = useContentStore((state) => state.setScreenType)
   const isLoadingScreenVisible = useContentStore(
     (state) => state.isLoadingScreenVisible
   )
@@ -43,10 +45,18 @@ const LoadingScreen = () => {
     transform: shouldDisplayEnterButton ? 'translateX(0%)' : 'translateX(100%)',
   })
 
+  const onTouch = () => {
+    setScreenType('touch')
+  }
+
   useEffect(() => {
     if (computedProgress === 100)
       setTimeout(() => setEnterButtonDisplay(true), 1000)
   }, [computedProgress])
+
+  useEffect(() => {
+    buttonRef.current.addEventListener('touchstart', onTouch, { once: true })
+  }, [])
 
   if (!isVisible) return null
   return (
@@ -75,7 +85,10 @@ const LoadingScreen = () => {
             %
           </h2>
         </animated.div>
-        <animated.div style={{ ...enterButtonProps, position: 'absolute' }}>
+        <animated.div
+          ref={buttonRef}
+          style={{ ...enterButtonProps, position: 'absolute' }}
+        >
           <Button text="ENTER" onClick={enterSite} />
         </animated.div>
       </div>
