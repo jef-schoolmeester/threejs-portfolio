@@ -41,8 +41,9 @@ const Camera = () => {
     <OrbitControls
       enabled={!isTransitionActive}
       target={focusPoint}
-      maxPolarAngle={Math.PI / 1.8}
+      maxPolarAngle={Math.PI / 1.9}
       // enableZoom={false}
+      maxDistance={27}
       enablePan={false}
       enableRotate={isRotationEnabled}
     />

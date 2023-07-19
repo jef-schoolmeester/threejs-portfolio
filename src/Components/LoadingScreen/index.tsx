@@ -7,6 +7,8 @@ import Button from '../Button'
 import { useContentStore } from '../../stores/contentStore'
 import { Canvas } from '@react-three/fiber'
 import LoadingScreenExperience from './LoadingScreenExperience'
+import { useTransitionStore } from '../../stores/transitionStore'
+import { sceneCenter, sceneCenterCameraPosition } from '../../config'
 
 const totalObjectsToLoad = 37
 
@@ -14,6 +16,8 @@ const LoadingScreen = () => {
   const buttonRef = useRef<HTMLDivElement>(null!)
   const [shouldDisplayEnterButton, setEnterButtonDisplay] = useState(false)
   const progress = useProgress()
+
+  const startTransition = useTransitionStore((state) => state.startTransition)
   const enterSite = useContentStore((state) => state.enterSite)
   const setScreenType = useContentStore((state) => state.setScreenType)
   const isLoadingScreenVisible = useContentStore(
@@ -47,6 +51,15 @@ const LoadingScreen = () => {
 
   const onTouch = () => {
     setScreenType('touch')
+  }
+
+  const handleEnterSite = () => {
+    enterSite()
+    startTransition({
+      to: sceneCenterCameraPosition,
+      focusPoint: sceneCenter,
+      speed: 'slow',
+    })
   }
 
   useEffect(() => {
@@ -89,7 +102,7 @@ const LoadingScreen = () => {
           ref={buttonRef}
           style={{ ...enterButtonProps, position: 'absolute' }}
         >
-          <Button text="ENTER" onClick={enterSite} />
+          <Button text="ENTER" onClick={handleEnterSite} />
         </animated.div>
       </div>
     </animated.div>

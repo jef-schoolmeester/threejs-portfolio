@@ -10,6 +10,13 @@ const defaultTransitionConfig = {
   clamp: true,
 }
 
+const slowTransitionConfig = {
+  mass: 4,
+  friction: 10,
+  tension: 9,
+  clamp: true,
+}
+
 const fastTransitionConfig = {
   mass: 2,
   friction: 40,
@@ -23,6 +30,18 @@ export const useAnimatedTransition = () => {
   const destination = useTransitionStore((state) => state.destination)
   const endTransition = useTransitionStore((state) => state.endTransition)
   const { camera } = useThree()
+
+  const getTransitionConfig = (speed?: 'slow' | 'medium' | 'fast') => {
+    switch (speed) {
+      case 'slow':
+        return slowTransitionConfig
+      case 'fast':
+        return fastTransitionConfig
+      case 'medium':
+      default:
+        return defaultTransitionConfig
+    }
+  }
 
   const [, api] = useSpring(() => ({
     position: [-1, -1, -1],
@@ -63,10 +82,7 @@ export const useAnimatedTransition = () => {
         position: destination.to.toArray(),
         focusPoint: destination.focusPoint.toArray(),
       },
-      config:
-        destination?.speed === 'fast'
-          ? fastTransitionConfig
-          : defaultTransitionConfig,
+      config: getTransitionConfig(destination.speed),
     })
   }, [isActive, destination])
 }
