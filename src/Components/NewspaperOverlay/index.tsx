@@ -52,7 +52,7 @@ const NewspaperOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
           <aside className="newspaperOverlayAside">
             <ul>
               {experience.learnedConcepts?.map((concept) => (
-                <li>{concept}</li>
+                <li key={concept}>{concept}</li>
               ))}
             </ul>
           </aside>
