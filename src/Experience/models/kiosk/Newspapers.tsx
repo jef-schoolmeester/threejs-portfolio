@@ -52,7 +52,7 @@ const Newspapers = () => {
           />
         )
       })}
-      {bottomNewspapersKeys.map((key) => {
+      {/* {bottomNewspapersKeys.map((key) => {
         const node = nodes[key]
         return (
           <Newspaper
@@ -63,7 +63,7 @@ const Newspapers = () => {
             rotation={node.rotation}
           />
         )
-      })}
+      })} */}
       {topRevuesKeys.map((key, index) => {
         const node = nodes[key]
         return (
@@ -80,7 +80,7 @@ const Newspapers = () => {
           />
         )
       })}
-      {middleRevuesKeys.map((key) => {
+      {/* {middleRevuesKeys.map((key) => {
         const node = nodes[key]
         return (
           <mesh
@@ -91,7 +91,7 @@ const Newspapers = () => {
             rotation={node.rotation}
           />
         )
-      })}
+      })} */}
       {bottomRevuesKeys.map((key, index) => {
         const node = nodes[key]
         return (
