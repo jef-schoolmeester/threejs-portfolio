@@ -4,7 +4,7 @@ import Pavement from './Pavement'
 import Tree from './Tree'
 const Decoration = () => {
   return (
-    <group onPointerEnter={(event) => event.stopPropagation()}>
+    <group>
       <Pavement />
       <LightPole />
       <Tree />

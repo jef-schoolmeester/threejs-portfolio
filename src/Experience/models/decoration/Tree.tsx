@@ -5,7 +5,7 @@ const Tree = () => {
   const treeTexture = useTexture('./textures/Tree-min.jpg')
   treeTexture.flipY = false
   return (
-    <group>
+    <group onPointerEnter={(event) => event.stopPropagation()}>
       <mesh
         geometry={nodes.Leaves3.geometry}
         position={[0.47, 4.86, -1.74]}
