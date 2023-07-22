@@ -2,24 +2,10 @@ import { OrbitControls } from '@react-three/drei'
 import { useTransitionStore } from '../../stores/transitionStore'
 import { useContentStore } from '../../stores/contentStore'
 import { useMemo } from 'react'
-// import { useControls } from 'leva'
-// import { useFrame } from '@react-three/fiber'
+import { useKioskCameraControls } from '../../hooks/useKioskCameraControls'
 
 const Camera = () => {
-  // const { positionX, positionY, positionZ, centerX, centerY, centerZ } =
-  //   useControls('camera', {
-  //     positionX: { value: 1.9, min: -10, max: 10, step: 0.01 },
-  //     positionY: { value: 1.8, min: -10, max: 10, step: 0.01 },
-  //     positionZ: { value: -0.7, min: -10, max: 10, step: 0.01 },
-  //     centerX: { value: -1, min: -10, max: 10, step: 0.01 },
-  //     centerY: { value: 1.3, min: -10, max: 10, step: 0.01 },
-  //     centerZ: { value: -0.7, min: -10, max: 10, step: 0.01 },
-  //   })
-
-  // useFrame(({ camera }) => {
-  //   camera.position.set(positionX, positionY, positionZ)
-  //   camera.lookAt(centerX, centerY, centerZ)
-  // })
+  useKioskCameraControls()
 
   const { isContentVisible, contentId } = useContentStore(
     (state) => state.focusedContent
@@ -39,13 +25,13 @@ const Camera = () => {
 
   return (
     <OrbitControls
-      enabled={!isTransitionActive}
+      enabled={!isTransitionActive && isRotationEnabled}
       target={focusPoint}
-      maxPolarAngle={Math.PI / 1.9}
+      maxPolarAngle={isContentVisible ? Math.PI / 1.7 : Math.PI / 1.9}
       // enableZoom={false}
       maxDistance={27}
       enablePan={false}
-      enableRotate={isRotationEnabled}
+      // enableRotate={isRotationEnabled}
     />
   )
 }
