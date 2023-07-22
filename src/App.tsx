@@ -42,7 +42,6 @@ const App = () => {
       <ContentManager />
       <FocusManager />
       <KioskContentManager />
-      <UnderConstruction />
       {!isDebugModeEnabled && <LoadingScreen />}
     </>
   )
