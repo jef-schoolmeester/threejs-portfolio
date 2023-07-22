@@ -10,10 +10,14 @@ const KioskContentManager = () => {
   )
 
   const startTransition = useTransitionStore((state) => state.startTransition)
+  const isTransitionActive = useTransitionStore(
+    (state) => state.isTransitionActive
+  )
 
   const handleFocusContent = (
     contentId: 'experiences' | 'projects' | 'education'
   ) => {
+    if (isTransitionActive) return
     focusContent(`kiosk#${contentId}`)
     let focusPoint: Vector3
     switch (contentId) {
