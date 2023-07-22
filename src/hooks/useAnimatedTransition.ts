@@ -59,11 +59,11 @@ export const useAnimatedTransition = () => {
       )
     },
     onRest: () => {
-      console.log('END TRANSITION', Date.now())
+      console.log('END TRANSITION')
       endTransition()
     },
     onStart: () => {
-      console.log('START TRANSITION', Date.now())
+      console.log('START TRANSITION')
     },
     config: defaultTransitionConfig,
   }))
