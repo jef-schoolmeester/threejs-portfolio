@@ -6,32 +6,39 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
-  justify-content: left;
   pointer-events: none;
 }
 .kioskContentOverlayContainer {
-  width: 300px;
+  width: 800px;
   height: auto;
+  display: flex;
+  flex-direction: column;
   color: #fafafa;
   pointer-events: all;
   user-select: none;
+  background-image: linear-gradient(
+    to right,
+    #00000000 0%,
+    #000000c5 50%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
 }
 
-.kioskContentOverlayBorder {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-image: linear-gradient(to right, #cd9460a0 0%, #00000000);
-  backdrop-filter: blur(5px);
+.kioskContentOverlayItems {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 5rem;
 }
 
 .kioskContentOverlaySection {
-  background-image: linear-gradient(to right, #000000c5 0%, #00000000);
-  backdrop-filter: blur(5px);
-  width: 100%;
+  padding: 0 0.5rem;
+  flex: 1;
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 
 .lockedKioskContentOverlaySection {
@@ -41,11 +48,66 @@
 }
 
 .kioskContentOverlaySelectedSection {
-  background-image: linear-gradient(to right, #705b49a0 0%, #00000000);
+  background: #705b49a0;
 }
 
 .kioskContentOverlaySection h2 {
   font-weight: 300;
   font-size: 1.8rem;
-  margin: 0.6em 0 0.5em 0.5em;
+  margin: 0.5em;
+}
+
+.kioskContentOverlayBorder {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #00000000 0%,
+    #cd9460a0 50%,
+    #00000000
+  );
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  .kioskContentOverlayContainer {
+    width: 700px;
+  }
+
+  .kioskContentOverlaySection h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .kioskContentOverlayContainer {
+    width: 600px;
+  }
+
+  .kioskContentOverlaySection h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .kioskContentOverlayContainer {
+    width: 100%;
+  }
+
+  .kioskContentOverlaySection h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .kioskContentOverlaySection h2 {
+    font-size: 1rem;
+  }
 }

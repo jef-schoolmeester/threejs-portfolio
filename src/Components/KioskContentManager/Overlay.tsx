@@ -25,37 +25,38 @@ const KioskContentOverlay: React.FC<Props> = ({
         style={{ opacity: props.opacity, backdropFilter: 'blur(5px)' }}
         className="kioskContentOverlayContainer"
       >
-        <span className="kioskContentOverlayBorder" />
-        <section
-          onClick={() => onContentFocus('experiences')}
-          className={`kioskContentOverlaySection ${
-            subContentId === 'experiences'
-              ? 'kioskContentOverlaySelectedSection'
-              : ''
-          }`}
-        >
-          <h2>Experiences</h2>
-        </section>
-        <section
-          onClick={() => onContentFocus('projects')}
-          className={`kioskContentOverlaySection ${
-            subContentId === 'projects'
-              ? 'kioskContentOverlaySelectedSection'
-              : ''
-          }`}
-        >
-          <h2>Projects</h2>
-        </section>
-        <section
-          onClick={() => onContentFocus('education')}
-          className={`kioskContentOverlaySection ${
-            subContentId === 'education'
-              ? 'kioskContentOverlaySelectedSection'
-              : ''
-          }`}
-        >
-          <h2>Education</h2>
-        </section>
+        <div className="kioskContentOverlayItems">
+          <section
+            onClick={() => onContentFocus('experiences')}
+            className={`kioskContentOverlaySection ${
+              subContentId === 'experiences'
+                ? 'kioskContentOverlaySelectedSection'
+                : ''
+            }`}
+          >
+            <h2>Experiences</h2>
+          </section>
+          <section
+            onClick={() => onContentFocus('projects')}
+            className={`kioskContentOverlaySection ${
+              subContentId === 'projects'
+                ? 'kioskContentOverlaySelectedSection'
+                : ''
+            }`}
+          >
+            <h2>Projects</h2>
+          </section>
+          <section
+            onClick={() => onContentFocus('education')}
+            className={`kioskContentOverlaySection ${
+              subContentId === 'education'
+                ? 'kioskContentOverlaySelectedSection'
+                : ''
+            }`}
+          >
+            <h2>Education</h2>
+          </section>
+        </div>
         <span className="kioskContentOverlayBorder" />
       </animated.div>
     </div>
