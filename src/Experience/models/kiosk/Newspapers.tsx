@@ -27,14 +27,14 @@ const Newspapers = () => {
     'TopNewspaper',
     nodesKeys
   )
-  const bottomNewspapersKeys = getOrderedNewspaperNodeKeys(
-    'BottomNewspaper',
-    nodesKeys
-  )
+  // const bottomNewspapersKeys = getOrderedNewspaperNodeKeys(
+  //   'BottomNewspaper',
+  //   nodesKeys
+  // )
 
   const topRevuesKeys = getOrderedNewspaperNodeKeys('TopRevue', nodesKeys)
   const bottomRevuesKeys = getOrderedNewspaperNodeKeys('BottomRevue', nodesKeys)
-  const middleRevuesKeys = getOrderedNewspaperNodeKeys('MiddleRevue', nodesKeys)
+  // const middleRevuesKeys = getOrderedNewspaperNodeKeys('MiddleRevue', nodesKeys)
 
   return (
     <group>
