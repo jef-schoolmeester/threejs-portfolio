@@ -13,9 +13,9 @@
   margin-bottom: 0%;
   width: 650px;
   height: 850px;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   color: #fafafa;
   background-color: #d9d9d9;
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.45);
@@ -31,12 +31,16 @@
   position: relative;
 }
 
+.educationOverlayTopBand * {
+  display: none;
+}
+
 .educationOverlayHeader {
   z-index: 2;
   position: relative;
   align-self: center;
   width: 70%;
-  height: 30%;
+  min-height: fit-content;
   padding: 2rem;
   box-sizing: border-box;
   background-color: #112a2a;
@@ -104,4 +108,103 @@
   margin-left: 2rem;
   background-color: #d9d9d9;
   z-index: 0;
+}
+
+@media (min-width: 640px) {
+  @media (max-height: 700px) {
+    .educationOverlayTopBand {
+      position: absolute;
+    }
+    .educationOverlayHeader {
+      transform: none;
+    }
+
+    .educationOverlayContent {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 640px) {
+  .educationOverlayContainer {
+    max-height: 100%;
+    height: fit-content;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .educationOverlayTopBand {
+    padding: 0.5rem 1rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .educationOverlayTopBand * {
+    display: initial;
+  }
+
+  .educationOverlayHeader {
+    width: 100%;
+    transform: none;
+  }
+  .educationOverlayHeader h2 {
+    margin-top: 3rem;
+    font-size: 1.8rem;
+  }
+
+  .educationOverlayContent {
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  .educationOverlayContent h2 {
+    text-align: center;
+  }
+
+  .educationOverlayFooter {
+    position: relative;
+    height: 3rem;
+    min-height: 3rem;
+  }
+
+  .educationOverlayFooter * {
+    display: none;
+  }
+
+  .educationOverlayBackpage {
+    display: none;
+  }
+
+  .educationOverlayContent ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 340px) {
+  .educationOverlayTopBand {
+    padding: 1rem;
+  }
+
+  .educationOverlayHeader h2 {
+    font-size: 1.5rem;
+  }
+
+  .educationOverlayHeader {
+    height: fit-content;
+  }
 }

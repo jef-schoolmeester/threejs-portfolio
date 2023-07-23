@@ -2,6 +2,7 @@ import Button from '../Button'
 import './style.css'
 import data from '../../data.json'
 import { useSpring, animated } from 'react-spring'
+import { CloseIcon } from '../Icons'
 
 interface Props {
   educationId: string
@@ -33,7 +34,20 @@ const EducationOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
         style={{ ...opacityProps }}
         className="educationOverlayContainer"
       >
-        <span className="educationOverlayTopBand" />
+        <div className="educationOverlayTopBand">
+          <Button
+            style={{
+              color: '#fafafa',
+              borderColor: '#fafafa',
+            }}
+            onClick={handleClose}
+            icon={
+              <CloseIcon
+                style={{ scale: '1.5', color: '#fafafa', stroke: '#fafafa' }}
+              />
+            }
+          />
+        </div>
         <header className="educationOverlayHeader">
           <h3>{education.term}</h3>
           <h3>{education.school}</h3>
@@ -48,7 +62,11 @@ const EducationOverlay: React.FC<Props> = ({ educationId, handleClose }) => {
           </ul>
         </main>
         <footer className="educationOverlayFooter">
-          <Button text="Close" onClick={handleClose} />
+          <Button
+            text="Close"
+            className="educationOverlayDesktopButton"
+            onClick={handleClose}
+          />
         </footer>
       </animated.div>
       <animated.div
