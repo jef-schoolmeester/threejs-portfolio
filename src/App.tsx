@@ -28,8 +28,10 @@ const App = () => {
         camera={{
           fov: 50,
           position: cameraStartPosition,
+          near: 0.1,
+          far: 100,
         }}
-        gl={{ outputColorSpace: 'srgb' }}
+        gl={{ outputColorSpace: 'srgb', powerPreference: 'high-performance' }}
       >
         {renderAllowed && (
           <Suspense>
