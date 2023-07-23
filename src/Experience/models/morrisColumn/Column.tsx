@@ -3,6 +3,8 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import data from '../../../data.json'
 import SectionTitle from './SectionTitle'
 import SkillSet from './SkillSet'
+import { useEffect, useRef } from 'react'
+import { Mesh } from 'three'
 
 const Column = () => {
   const { nodes }: any = useGLTF('./models/Column.glb')
@@ -12,9 +14,17 @@ const Column = () => {
   const skillsTitles = Object.keys(data.skills)
   const skills = Object.values(data.skills)
 
+  const columnRef = useRef<Mesh>(null!)
+
+  useEffect(() => {
+    columnRef.current.updateMatrix()
+  }, [])
+
   return (
     <group>
       <mesh
+        ref={columnRef}
+        matrixAutoUpdate={false}
         geometry={nodes.Column.geometry}
         position={[0, 1, 2]}
         rotation={[0, -Math.PI / 6, 0]}
