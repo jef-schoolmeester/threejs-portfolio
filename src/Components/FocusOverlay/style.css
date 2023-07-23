@@ -65,7 +65,7 @@
 
 @media (max-width: 640px) {
   .focusOverlayContainer {
-    margin: 0 1rem;
+    margin: 4rem 1rem;
   }
   .focusOverlayContainer section {
     padding: 0.7rem 0;
