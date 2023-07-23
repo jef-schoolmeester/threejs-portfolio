@@ -1,4 +1,5 @@
 import Grass from './Grass'
+import Leaves from './Leaves'
 import LightPole from './LightPole'
 import Pavement from './Pavement'
 import Tree from './Tree'
@@ -9,6 +10,7 @@ const Decoration = () => {
       <LightPole />
       <Tree />
       <Grass />
+      <Leaves />
     </group>
   )
 }

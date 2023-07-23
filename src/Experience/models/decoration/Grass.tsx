@@ -67,7 +67,7 @@ const Grass = () => {
       #include <begin_vertex>
       vec4 modelPosition = modelMatrix * vec4(position, 1.0);
       float noise = 1.0-(snoise(vec2((uTime * 0.2 -modelPosition.x), (uTime * 0.2 -modelPosition.z)))); 
-      transformed.z += sin(noise) * modelPosition.y * modelPosition.y * 0.5;
+      transformed.z -= sin(noise) * modelPosition.y * modelPosition.y * 0.5;
       `
     )
   }
