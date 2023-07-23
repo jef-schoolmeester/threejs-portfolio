@@ -2,6 +2,7 @@ import Button from '../Button'
 import './style.css'
 import data from '../../data.json'
 import { useSpring, animated } from 'react-spring'
+import { CloseIcon } from '../Icons'
 
 interface Props {
   experienceId: string
@@ -34,7 +35,18 @@ const NewspaperOverlay: React.FC<Props> = ({ experienceId, handleClose }) => {
         className="newspaperOverlayContainer"
       >
         <header className="newspaperOverlayHeader">
-          <div>
+          <div className="newspaperOverlayMobileButton">
+            <Button
+              style={{
+                color: '#121212',
+                borderColor: '#121212',
+                flexGrow: 0,
+              }}
+              onClick={handleClose}
+              icon={<CloseIcon style={{ scale: '1.5' }} />}
+            />
+          </div>
+          <div className="newspaperOverlayHeaderInfo">
             <h3>{experience.term}</h3>
             <h3>{experience.location}</h3>
           </div>
