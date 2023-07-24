@@ -1,7 +1,7 @@
 import { useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useMemo, useRef } from 'react'
-import { DoubleSide, InstancedMesh, Object3D, Shader } from 'three'
+import { DoubleSide, InstancedMesh, Object3D } from 'three'
 
 const radius = Math.PI / 4
 
@@ -11,7 +11,7 @@ const startPoints = {
   c: { x: -3.4, y: 2, z: -7.2 },
 }
 
-const LEAVES_COUNT = 80
+const LEAVES_COUNT = 20
 
 const Leaves = () => {
   const mesh = useRef<InstancedMesh>(null!)
@@ -22,18 +22,18 @@ const Leaves = () => {
   const particles = useMemo(() => {
     const temp = []
     for (let i = 0; i < LEAVES_COUNT; i++) {
-      const t = Math.random() * 100
+      const timeFactor = Math.random() * 100
       const factor = Math.random() * 2
       const speed = 0.01 + Math.random() / 250
       const xFactor = Math.random() * 1
       const zFactor = Math.random() * 1
-      const scale = Math.random()
+      const scale = Math.random() * 2 + 0.5
       let startPoint
       if (i < LEAVES_COUNT / 2.5) startPoint = startPoints.a
       else if (i < LEAVES_COUNT / 1.3) startPoint = startPoints.b
       else startPoint = startPoints.c
       temp.push({
-        t,
+        timeFactor,
         factor,
         speed,
         xFactor,
@@ -48,22 +48,23 @@ const Leaves = () => {
   useFrame(() => {
     particles.forEach((particle, i) => {
       const { factor, speed, xFactor, zFactor, scale, startPoint } = particle
-      let { t } = particle
-      t = particle.t += speed / 2
-      const scaleVariance = Math.cos(t)
-      const yVariance = Math.cos(t) + (t % (startPoint.y + 1))
-      const xVariance = (Math.sin(t) + Math.cos(t * 2) / 10) * yVariance * 0.4
+      let { timeFactor } = particle
+      timeFactor = particle.timeFactor += speed / 2
+      const scaleVariance = Math.cos(timeFactor)
+      const yVariance = (Math.cos(timeFactor) + timeFactor) % (startPoint.y + 1)
+      const xVariance =
+        (Math.sin(timeFactor) + Math.cos(timeFactor * 2) / 10) * yVariance * 0.4
       const zVariance =
-        Math.sin((t * t) / 100) -
+        Math.sin((timeFactor * timeFactor) / 100) -
         1 +
-        (1 + Math.cos(t / 50)) * -yVariance * yVariance * 0.2
+        (1 + Math.cos(timeFactor / 50)) * -yVariance * yVariance * 0.2
 
       const startX = startPoint.x + Math.sin(radius) * factor * 0.7 + xFactor
       const startY = startPoint.y
       const startZ = startPoint.z + Math.cos(radius) * factor * 0.7 + zFactor
       dummy.position.set(
         startX + xVariance,
-        Math.max(startY - yVariance, 0),
+        Math.max(startY - yVariance, 0 - yVariance * 0.05),
         startZ + zVariance
       )
       dummy.scale.setScalar(scale)
@@ -79,16 +80,12 @@ const Leaves = () => {
   })
 
   return (
-    <instancedMesh
-      ref={mesh}
-      args={[undefined, undefined, LEAVES_COUNT]}
-      matrixAutoUpdate={false}
-    >
+    <instancedMesh ref={mesh} args={[undefined, undefined, LEAVES_COUNT]}>
       <planeGeometry args={[0.1, 0.1]} />
       <meshStandardMaterial
-        transparent
+        depthWrite={false}
+        transparent={true}
         alphaMap={LeafAlphaMap}
-        // opacity={0}
         color="#80BE47"
         side={DoubleSide}
       />
