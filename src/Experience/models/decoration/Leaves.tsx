@@ -6,8 +6,8 @@ import { DoubleSide, InstancedMesh, Object3D } from 'three'
 const radius = Math.PI / 4
 
 const startPoints = {
-  a: { x: -0.4, y: 5, z: -2 },
-  b: { x: -3.2, y: 6, z: -3 },
+  a: { x: -0.4, y: 5, z: -3 },
+  b: { x: -3.2, y: 6, z: -3.8 },
   c: { x: -3.4, y: 2, z: -7.2 },
 }
 
@@ -26,7 +26,7 @@ const Leaves = () => {
       const factor = Math.random() * 2
       const speed = 0.01 + Math.random() / 250
       const xFactor = Math.random() * 1
-      const zFactor = Math.random() * 1
+      const zFactor = Math.random() + 2
       const scale = Math.random() * 2 + 0.5
       let startPoint
       if (i < LEAVES_COUNT / 2.5) startPoint = startPoints.a
@@ -55,9 +55,10 @@ const Leaves = () => {
       const xVariance =
         (Math.sin(timeFactor) + Math.cos(timeFactor * 2) / 10) * yVariance * 0.4
       const zVariance =
-        Math.sin((timeFactor * timeFactor) / 100) -
-        1 +
-        (1 + Math.cos(timeFactor / 50)) * -yVariance * yVariance * 0.2
+        Math.sin((timeFactor * timeFactor) / 100) * 0.5 -
+        2 +
+        (1 + Math.cos(timeFactor / 50)) * -yVariance * yVariance * 0.2 +
+        yVariance * 0.05
 
       const startX = startPoint.x + Math.sin(radius) * factor * 0.7 + xFactor
       const startY = startPoint.y
