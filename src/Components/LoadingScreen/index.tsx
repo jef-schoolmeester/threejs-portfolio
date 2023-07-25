@@ -10,7 +10,7 @@ import LoadingScreenExperience from './LoadingScreenExperience'
 import { useTransitionStore } from '../../stores/transitionStore'
 import { sceneCenter, sceneCenterCameraPosition } from '../../config'
 
-const totalObjectsToLoad = 37
+const totalObjectsToLoad = 38
 
 const LoadingScreen = () => {
   const buttonRef = useRef<HTMLDivElement>(null!)
