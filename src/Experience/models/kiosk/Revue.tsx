@@ -67,7 +67,7 @@ const Revue: React.FC<Props> = ({
     >
       {text && (
         <Text
-          position={[0, 0.01, 0.13]}
+          position={[0, 0.01, 0.15]}
           rotation={[-Math.PI / 2, Math.PI, 0, 'YXZ']}
           font="./fonts/Overpass.woff"
           color="#121212"

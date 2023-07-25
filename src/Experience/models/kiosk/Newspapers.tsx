@@ -15,7 +15,8 @@ const projects = data.projects
 const Newspapers = () => {
   const { nodes }: any = useGLTF('./models/Kiosk/Newspapers.glb')
 
-  const newspapersTexture = useTexture('./textures/FrontNewspapers-min.jpg')
+  const newspapersTexture = useTexture('./textures/FrontNewspapers.jpg')
+  newspapersTexture.colorSpace = 'srgb'
   newspapersTexture.flipY = false
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const Newspapers = () => {
     <group>
       {topNewspapersKeys.map((key, index) => {
         const node = nodes[key]
+        if (!experiences[index]) return null
         return (
           <Newspaper
             key={key}
@@ -66,6 +68,7 @@ const Newspapers = () => {
       })} */}
       {topRevuesKeys.map((key, index) => {
         const node = nodes[key]
+        if (!projects[index]) return null
         return (
           <Revue
             key={key}
@@ -94,6 +97,7 @@ const Newspapers = () => {
       })} */}
       {bottomRevuesKeys.map((key, index) => {
         const node = nodes[key]
+        if (!education[index]) return null
         return (
           <Revue
             key={key}
