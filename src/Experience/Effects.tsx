@@ -1,4 +1,6 @@
 import { Environment, MeshReflectorMaterial } from '@react-three/drei'
+import { DepthOfField, EffectComposer } from '@react-three/postprocessing'
+import { useEffect, useState } from 'react'
 
 const Effects = () => {
   // const skyparams = useControls('', {
@@ -74,9 +76,9 @@ const Effects = () => {
         />
       </mesh>
 
-      {/* <EffectComposer>
-        <DepthOfField blur={10} focusDistance={10} />
-      </EffectComposer> */}
+      <EffectComposer>
+        <DepthOfField focalLength={12} focusDistance={4} bokehScale={2} />
+      </EffectComposer>
     </>
   )
 }
