@@ -2,6 +2,7 @@ import { useThree } from '@react-three/fiber'
 import { useTransitionStore } from '../stores/transitionStore'
 import { useSpring } from '@react-spring/three'
 import { useEffect } from 'react'
+import { sceneCenter } from '../config'
 
 const defaultTransitionConfig = {
   mass: 1,
@@ -30,6 +31,10 @@ export const useAnimatedTransition = () => {
   const destination = useTransitionStore((state) => state.destination)
   const endTransition = useTransitionStore((state) => state.endTransition)
   const { camera } = useThree()
+
+  useEffect(() => {
+    camera.lookAt(sceneCenter)
+  }, [])
 
   const getTransitionConfig = (speed?: 'slow' | 'medium' | 'fast') => {
     switch (speed) {
