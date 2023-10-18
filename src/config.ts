@@ -2,7 +2,7 @@ import * as THREE from 'three'
 
 export const loadingCameraPosition = new THREE.Vector3(0, 1.5, 3)
 
-export const cameraStartPosition = new THREE.Vector3(2, 5, -20)
+export const cameraStartPosition = new THREE.Vector3(15, 15, -5)
 export const cameraStartFocusPoint = new THREE.Vector3(0, 2.5, -1)
 
 export const sceneCenter = new THREE.Vector3(0, 2.5, -1)
