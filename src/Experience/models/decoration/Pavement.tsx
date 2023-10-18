@@ -1,28 +1,35 @@
-import { useGLTF, useTexture } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
-import { Mesh } from 'three'
+import { Material, Mesh } from 'three'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import { useLoadTransition } from '../../../hooks/useLoadTransition'
 
 const Pavement = () => {
-  const { nodes }: any = useGLTF('./models/Pavement.glb')
-  const pavementTexture = useTexture('./textures/Pavement.jpg')
-  pavementTexture.flipY = false
+  const { startTransition } = useLoadTransition()
+  const { loadedModelsObservable } = useLoadedItemsContext()
 
   const meshRef = useRef<Mesh>(null!)
 
   useEffect(() => {
-    meshRef.current.updateMatrix()
+    loadedModelsObservable.subscribe('pavement', ({ material, model }) => {
+      if (!meshRef.current) return
+      if (model) {
+        meshRef.current.geometry = model
+        startTransition(meshRef.current.material as Material)
+      }
+      if (material) meshRef.current.material = material
+      meshRef.current.updateMatrix()
+    })
   }, [])
 
   return (
     <group>
       <mesh
         ref={meshRef}
-        geometry={nodes.Pavement.geometry}
         position={[-0.63, 0, 4.78]}
         rotation={[Math.PI, 0, Math.PI]}
         matrixAutoUpdate={false}
       >
-        <meshBasicMaterial map={pavementTexture} />
+        <meshBasicMaterial transparent />
       </mesh>
     </group>
   )

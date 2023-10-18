@@ -1,26 +1,30 @@
-import { useGLTF, useTexture } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
-import { Mesh } from 'three'
+import { Material, Mesh } from 'three'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import { useLoadTransition } from '../../../hooks/useLoadTransition'
 
 const LightPole = () => {
-  const { nodes }: any = useGLTF('./models/LightPole.glb')
-  const LightPoleTexture = useTexture('./textures/Lightpole.jpg')
-  LightPoleTexture.flipY = false
+  const { loadedModelsObservable } = useLoadedItemsContext()
+  const { startTransition } = useLoadTransition()
 
   const meshRef = useRef<Mesh>(null!)
 
   useEffect(() => {
-    meshRef.current.updateMatrix()
+    loadedModelsObservable.subscribe('lightpole', ({ material, model }) => {
+      if (!meshRef.current) return null
+      if (model) {
+        meshRef.current.geometry = model
+        startTransition(meshRef.current.material as Material)
+      }
+      if (material) meshRef.current.material = material
+      meshRef.current.updateMatrix()
+    })
   }, [])
 
   return (
     <group>
-      <mesh
-        ref={meshRef}
-        geometry={nodes.LightPole.geometry}
-        position={[0, 1.3, -4.97]}
-      >
-        <meshBasicMaterial map={LightPoleTexture} />
+      <mesh ref={meshRef} position={[0, 1.3, -4.97]} matrixAutoUpdate={false}>
+        <meshBasicMaterial transparent />
       </mesh>
     </group>
   )

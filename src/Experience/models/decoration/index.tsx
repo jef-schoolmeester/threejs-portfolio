@@ -3,6 +3,7 @@ import Leaves from './Leaves'
 import LightPole from './LightPole'
 import Pavement from './Pavement'
 import Tree from './Tree'
+
 const Decoration = () => {
   return (
     <group>

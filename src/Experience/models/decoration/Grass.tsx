@@ -1,15 +1,12 @@
-import { useGLTF, useTexture } from '@react-three/drei'
-
 import { useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
-import { MeshBasicMaterial, Shader } from 'three'
+import { useEffect, useRef } from 'react'
+import { Mesh, Shader } from 'three'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
 
 const Grass = () => {
-  const { nodes }: any = useGLTF('./models/Grass.glb')
-  const grassTexture = useTexture('./textures/Grass.jpg')
-  grassTexture.flipY = false
+  const { loadedModelsObservable } = useLoadedItemsContext()
 
-  const materialRef = useRef<MeshBasicMaterial>(null!)
+  const meshRef = useRef<Mesh>(null!)
   const time = useRef({ uTime: { value: 0 } })
 
   useFrame((state) => {
@@ -72,19 +69,25 @@ const Grass = () => {
     )
   }
 
+  useEffect(() => {
+    loadedModelsObservable.subscribe('grass', ({ material, model }) => {
+      if (!meshRef.current) return null
+      if (model) meshRef.current.geometry = model
+      if (material) {
+        material.onBeforeCompile = onBeforeCompile
+        meshRef.current.material = material
+      }
+      meshRef.current.updateMatrix()
+    })
+  }, [])
+
   return (
     <group>
       <mesh
-        geometry={nodes.Grass.geometry}
+        ref={meshRef}
         position={[0.353, 0.14, -4.887]}
         rotation={[0.05, 0.061, -0.004]}
-      >
-        <meshBasicMaterial
-          ref={materialRef}
-          onBeforeCompile={onBeforeCompile}
-          map={grassTexture}
-        />
-      </mesh>
+      ></mesh>
     </group>
   )
 }

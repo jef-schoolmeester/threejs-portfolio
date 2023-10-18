@@ -1,7 +1,7 @@
-import { useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { useMemo, useRef } from 'react'
-import { DoubleSide, InstancedMesh, Object3D } from 'three'
+import { useEffect, useMemo, useRef } from 'react'
+import { InstancedMesh, Object3D } from 'three'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
 
 const radius = Math.PI / 4
 
@@ -14,10 +14,10 @@ const startPoints = {
 const LEAVES_COUNT = 20
 
 const Leaves = () => {
-  const mesh = useRef<InstancedMesh>(null!)
-  const dummy = new Object3D()
+  const meshRef = useRef<InstancedMesh>(null!)
+  const { loadedModelsObservable } = useLoadedItemsContext()
 
-  const LeafAlphaMap = useTexture('./textures/LeafAlphaMap.jpg')
+  const dummy = new Object3D()
 
   const particles = useMemo(() => {
     const temp = []
@@ -75,21 +75,23 @@ const Leaves = () => {
         scaleVariance * 5
       )
       dummy.updateMatrix()
-      mesh.current.setMatrixAt(i, dummy.matrix)
+      meshRef.current.setMatrixAt(i, dummy.matrix)
     })
-    mesh.current.instanceMatrix.needsUpdate = true
+    meshRef.current.instanceMatrix.needsUpdate = true
   })
 
+  useEffect(() => {
+    loadedModelsObservable.subscribe('leaves', ({ material }) => {
+      if (!meshRef.current) return null
+      if (material) {
+        meshRef.current.material = material
+      }
+    })
+  }, [])
+
   return (
-    <instancedMesh ref={mesh} args={[undefined, undefined, LEAVES_COUNT]}>
+    <instancedMesh ref={meshRef} args={[undefined, undefined, LEAVES_COUNT]}>
       <planeGeometry args={[0.1, 0.1]} />
-      <meshStandardMaterial
-        depthWrite={false}
-        transparent={true}
-        alphaMap={LeafAlphaMap}
-        color="#80BE47"
-        side={DoubleSide}
-      />
     </instancedMesh>
   )
 }
