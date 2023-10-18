@@ -6,11 +6,30 @@ import ContentManager from './Components/ContentManager'
 import { cameraStartPosition } from './config'
 import FocusManager from './Components/FocusManager'
 import KioskContentManager from './Components/KioskContentManager/Manager'
-import { Suspense, useEffect, useState } from 'react'
+import {
+  Suspense,
+  createContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import LoadingScreen from './Components/LoadingScreen'
 import { useDebugMode } from './hooks/useDebugMode'
+import { Observable } from './utils/Observable'
+import { LoadedModelsType } from './types'
+
+export const LoadedItemsContext = createContext<{
+  loadedModelsObservable: Observable<LoadedModelsType>
+}>({ loadedModelsObservable: new Observable<LoadedModelsType>() })
 
 const App = () => {
+  const loadedItemsRef = useRef(new Observable<LoadedModelsType>())
+  const value = useMemo(
+    () => ({ loadedModelsObservable: loadedItemsRef.current }),
+    []
+  )
+
   const [renderAllowed, setRenderAllowed] = useState(false)
 
   useEffect(() => {
@@ -22,7 +41,7 @@ const App = () => {
   const isDebugModeEnabled = useDebugMode()
 
   return (
-    <>
+    <LoadedItemsContext.Provider value={value}>
       <Canvas
         className="experience"
         camera={{
@@ -44,7 +63,7 @@ const App = () => {
       <FocusManager />
       <KioskContentManager />
       {!isDebugModeEnabled && <LoadingScreen />}
-    </>
+    </LoadedItemsContext.Provider>
   )
 }
 
