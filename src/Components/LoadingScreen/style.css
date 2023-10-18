@@ -9,9 +9,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #04060d;
+  background-color: #04060d66;
   color: #fafafa;
-  /* opacity: 0.5; */
 }
 
 .loadingPaper {
@@ -23,8 +22,21 @@
 
 .loadingScreenProgress {
   user-select: none;
-  font-size: 5rem;
-  color: #221b19;
+  color: #f0e6d1;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* flex: 2; */
+}
+
+.loadingScreenProgress h2 {
+  font-size: 3rem;
+  margin: 0;
+  width: max-content;
+}
+
+.loadingScreenProgress h3 {
+  font-size: 5rem;
+  margin: 0;
 }
