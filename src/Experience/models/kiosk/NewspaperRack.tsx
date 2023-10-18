@@ -1,17 +1,27 @@
-import { useGLTF, useTexture } from '@react-three/drei'
+import { useEffect, useRef } from 'react'
+import { Mesh } from 'three'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
 
 const NewspaperRack = () => {
-  const { nodes }: any = useGLTF('./models/Kiosk/NewspaperRack.glb')
-  const newspaperRackTexture = useTexture('./textures/NewspaperRack-min.jpg')
-  newspaperRackTexture.flipY = false
+  const { loadedModelsObservable } = useLoadedItemsContext()
+  const rackRef = useRef<Mesh>(null!)
+
+  useEffect(() => {
+    loadedModelsObservable.subscribe('newspaperrack', ({ material, model }) => {
+      if (!rackRef.current) return
+      if (model) rackRef.current.geometry = model
+      if (material) rackRef.current.material = material
+      rackRef.current.updateMatrix()
+    })
+  }, [])
+
   return (
     <group>
       <mesh
-        geometry={nodes.NewspaperRack.geometry}
+        ref={rackRef}
         position={[-0.44, 2.26, -0.7]}
-      >
-        <meshBasicMaterial map={newspaperRackTexture} />
-      </mesh>
+        matrixAutoUpdate={false}
+      ></mesh>
     </group>
   )
 }

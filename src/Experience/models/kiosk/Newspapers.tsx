@@ -1,52 +1,55 @@
-import { useGLTF, useTexture } from '@react-three/drei'
-import { useEffect } from 'react'
-import { MeshBasicMaterial } from 'three'
+import { useEffect, useMemo, useState } from 'react'
+import { Material, Mesh } from 'three'
 
 import data from '../../../data.json'
-import { getOrderedNewspaperNodeKeys } from '../../../utils/newspapers'
+import { getOrderedNewspaperNodes } from '../../../utils/newspapers'
 import Newspaper from './Newspaper'
 import Revue from './Revue'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
 
-const material = new MeshBasicMaterial()
 const experiences = data.experiences
 const education = data.education
 const projects = data.projects
 
 const Newspapers = () => {
-  const { nodes }: any = useGLTF('./models/Kiosk/Newspapers.glb')
+  const { loadedModelsObservable } = useLoadedItemsContext()
 
-  const newspapersTexture = useTexture('./textures/FrontNewspapers.jpg')
-  newspapersTexture.colorSpace = 'srgb'
-  newspapersTexture.flipY = false
+  const [newspaperMaterial, setNewspaperMaterial] = useState<Material>()
+  const [newspaperModels, setNewspaperModels] = useState<Mesh[]>()
 
   useEffect(() => {
-    material.map = newspapersTexture
+    loadedModelsObservable.subscribe('newspapers', ({ material, meshs }) => {
+      if (material) setNewspaperMaterial(material)
+      if (meshs) setNewspaperModels(meshs)
+    })
   }, [])
 
-  const nodesKeys = Object.keys(nodes)
-  const topNewspapersKeys = getOrderedNewspaperNodeKeys(
-    'TopNewspaper',
-    nodesKeys
-  )
-  // const bottomNewspapersKeys = getOrderedNewspaperNodeKeys(
-  //   'BottomNewspaper',
-  //   nodesKeys
-  // )
+  const sortedTopNewspapers = useMemo(() => {
+    if (!newspaperModels) return []
+    return getOrderedNewspaperNodes(newspaperModels, 'TopNewspaper')
+  }, [newspaperModels])
 
-  const topRevuesKeys = getOrderedNewspaperNodeKeys('TopRevue', nodesKeys)
-  const bottomRevuesKeys = getOrderedNewspaperNodeKeys('BottomRevue', nodesKeys)
-  // const middleRevuesKeys = getOrderedNewspaperNodeKeys('MiddleRevue', nodesKeys)
+  const sortedTopRevues = useMemo(() => {
+    if (!newspaperModels) return []
+    return getOrderedNewspaperNodes(newspaperModels, 'TopRevue')
+  }, [newspaperModels])
+
+  const sortedBottomRevues = useMemo(() => {
+    if (!newspaperModels) return []
+    return getOrderedNewspaperNodes(newspaperModels, 'BottomRevue')
+  }, [newspaperModels])
+
+  if (!newspaperMaterial) return null
 
   return (
     <group>
-      {topNewspapersKeys.map((key, index) => {
-        const node = nodes[key]
-        if (!experiences[index]) return null
+      {sortedTopNewspapers.map((node, index) => {
+        if (!projects[index]) return null
         return (
           <Newspaper
-            key={key}
+            key={node.name}
             geometry={node.geometry}
-            material={material}
+            material={newspaperMaterial}
             position={node.position}
             rotation={node.rotation}
             text={experiences[index]?.title}
@@ -60,20 +63,19 @@ const Newspapers = () => {
           <Newspaper
             key={key}
             geometry={node.geometry}
-            material={material}
+            material={newspaperMaterial}
             position={node.position}
             rotation={node.rotation}
           />
         )
       })} */}
-      {topRevuesKeys.map((key, index) => {
-        const node = nodes[key]
+      {sortedTopRevues.map((node, index) => {
         if (!projects[index]) return null
         return (
           <Revue
-            key={key}
+            key={node.name}
             geometry={node.geometry}
-            material={material}
+            material={newspaperMaterial}
             position={node.position}
             rotation={node.rotation}
             text={projects[index]?.title}
@@ -89,20 +91,19 @@ const Newspapers = () => {
           <mesh
             key={key}
             geometry={node.geometry}
-            material={material}
+            material={newspaperMaterial}
             position={node.position}
             rotation={node.rotation}
           />
         )
       })} */}
-      {bottomRevuesKeys.map((key, index) => {
-        const node = nodes[key]
+      {sortedBottomRevues.map((node, index) => {
         if (!education[index]) return null
         return (
           <Revue
-            key={key}
+            key={node.name}
             geometry={node.geometry}
-            material={material}
+            material={newspaperMaterial}
             position={node.position}
             rotation={node.rotation}
             text={education[index]?.title}

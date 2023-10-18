@@ -1,16 +1,17 @@
-const getIndexFromNodeKey = (key: string, rowName: string) =>
-  parseInt(key.replace(rowName, ''))
+import { Mesh } from 'three'
 
-const filterNodeKeysByRow = (rowName: string, nodeKeys: string[]) =>
-  nodeKeys.filter((key) => key.includes(rowName))
+const getIndexFromNode = (node: Mesh, nodeName: string) =>
+  parseInt(node.name.replace(nodeName, ''))
 
-const sortNodeKeysByNumber = (rowName: string, nodeKeys: string[]) =>
-  nodeKeys.sort(
-    (a, b) => getIndexFromNodeKey(a, rowName) - getIndexFromNodeKey(b, rowName)
+const filterNodeByName = (nodes: Mesh[], nodeName: string) =>
+  nodes.filter((node) => node.name.includes(nodeName))
+
+const sortNodeByNumber = (nodes: Mesh[], nodeName: string) =>
+  nodes.sort(
+    (a, b) => getIndexFromNode(a, nodeName) - getIndexFromNode(b, nodeName)
   )
 
-export const getOrderedNewspaperNodeKeys = (
-  rowName: string,
-  nodeKeys: string[]
-): string[] =>
-  sortNodeKeysByNumber(rowName, filterNodeKeysByRow(rowName, nodeKeys))
+export const getOrderedNewspaperNodes = (
+  nodes: Mesh[],
+  nodeName: string
+): Mesh[] => sortNodeByNumber(filterNodeByName(nodes, nodeName), nodeName)

@@ -1,21 +1,37 @@
 import { Html, Text } from '@react-three/drei'
 import ContactContent from '../../../Components/ContactContent'
-import { BufferGeometry, DoubleSide, Vector3 } from 'three'
+import { DoubleSide, Mesh, Vector3 } from 'three'
 import { useHoverStore } from '../../../stores/hoverStore'
 import { useFrame } from '@react-three/fiber'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
 
 interface Props {
   metalness: number
   roughness: number
-  geometry: BufferGeometry
 }
 
-const ContactPoster: React.FC<Props> = ({ metalness, roughness, geometry }) => {
+const ContactPoster: React.FC<Props> = ({ metalness, roughness }) => {
   const setHoverActive = useHoverStore((state) => state.setHoverActive)
   const clearHoverMessage = useHoverStore((state) => state.clearHoverMessage)
 
+  const { loadedModelsObservable } = useLoadedItemsContext()
+
+  const contactPosterRef = useRef<Mesh>(null!)
+
   const [isPosterVisible, setPosterVisible] = useState<boolean>(false)
+
+  useEffect(() => {
+    loadedModelsObservable.subscribe('kioskposters', ({ models }) => {
+      if (!contactPosterRef.current) return
+      if (models?.length) {
+        for (const model of models) {
+          if (model.name === 'Side') contactPosterRef.current.geometry = model
+        }
+      }
+      contactPosterRef.current.updateMatrix()
+    })
+  }, [])
 
   useFrame((state) => {
     const cameraPosition = new Vector3(0, 0, 0)
@@ -41,7 +57,7 @@ const ContactPoster: React.FC<Props> = ({ metalness, roughness, geometry }) => {
         <meshBasicMaterial side={DoubleSide} color={'red'} visible={false} />
       </mesh>
       <mesh
-        geometry={geometry}
+        ref={contactPosterRef}
         position={[0, 1.6, -2.42]}
         onPointerMove={(event) => {
           event.stopPropagation()

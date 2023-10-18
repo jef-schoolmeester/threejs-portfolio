@@ -1,19 +1,30 @@
-import { useGLTF, useTexture } from '@react-three/drei'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import { useEffect, useRef } from 'react'
+import { Mesh } from 'three'
 
 const NewspaperStacks = () => {
-  const { nodes }: any = useGLTF('./models/newspapers.glb')
-  const newspaperStacksTexture = useTexture('./textures/Newspapers-min.jpg')
-  newspaperStacksTexture.flipY = false
+  const { loadedModelsObservable } = useLoadedItemsContext()
+  const stacksRef = useRef<Mesh>(null!)
+
+  useEffect(() => {
+    loadedModelsObservable.subscribe(
+      'newspaperstack',
+      ({ material, model }) => {
+        if (!stacksRef.current) return
+        if (model) stacksRef.current.geometry = model
+        if (material) stacksRef.current.material = material
+        stacksRef.current.updateMatrix()
+      }
+    )
+  }, [])
   return (
     <group>
       <mesh
-        geometry={nodes.Newspapers.geometry}
-        material={nodes.Newspapers.material}
+        ref={stacksRef}
+        matrixAutoUpdate={false}
         position={[0.18, 0.71, 0.53]}
         rotation={[-Math.PI / 2, -1.2, -Math.PI / 2]}
-      >
-        <meshBasicMaterial map={newspaperStacksTexture} />
-      </mesh>
+      ></mesh>
     </group>
   )
 }

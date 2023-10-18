@@ -1,26 +1,41 @@
-import { Text, useGLTF, useTexture } from '@react-three/drei'
-import { Euler } from 'three'
+import { Text } from '@react-three/drei'
+import { useEffect, useRef } from 'react'
+import { Euler, Mesh } from 'three'
+import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
 
 const StreetPanel = () => {
-  const { nodes }: any = useGLTF('./models/StreetPanel.glb')
-  const streetPanelTexture = useTexture('./textures/StreetPanel-min.jpg')
-  streetPanelTexture.flipY = false
+  const structureRef = useRef<Mesh>(null!)
+  const blackBoardRef = useRef<Mesh>(null!)
 
   const textRotation = new Euler(-Math.PI * 0.5, Math.PI * 0.5, 0, 'YZX')
+
+  const { loadedModelsObservable } = useLoadedItemsContext()
+
+  useEffect(() => {
+    loadedModelsObservable.subscribe('streetpanel', ({ material, models }) => {
+      if (!structureRef.current || !blackBoardRef.current) return
+
+      if (material) {
+        structureRef.current.material = material
+      }
+
+      if (!models?.length) return
+      for (const model of models) {
+        if (model.name === 'Structure') structureRef.current.geometry = model
+        if (model.name === 'Blackboard') blackBoardRef.current.geometry = model
+      }
+    })
+  }, [])
 
   return (
     <group>
       <mesh
-        geometry={nodes.Structure.geometry}
-        material={nodes.Structure.material}
+        ref={structureRef}
         position={[1.75, 0.243, -2.593]}
         rotation={[0, -0.436, 0.175]}
-      >
-        <meshBasicMaterial map={streetPanelTexture} />
-      </mesh>
+      ></mesh>
       <mesh
-        geometry={nodes.Blackboard.geometry}
-        material={nodes.Blackboard.material}
+        ref={blackBoardRef}
         position={[1.544, 0.735, -2.358]}
         rotation={[0, -0.436, -1.396]}
       >
