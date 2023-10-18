@@ -5,8 +5,6 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import Button from '../Button'
 import { useContentStore } from '../../stores/contentStore'
-import { Canvas } from '@react-three/fiber'
-import LoadingScreenExperience from './LoadingScreenExperience'
 import { useTransitionStore } from '../../stores/transitionStore'
 import { sceneCenter, sceneCenterCameraPosition } from '../../config'
 
@@ -32,8 +30,10 @@ const LoadingScreen = () => {
   const props = useSpring({
     loadingProgress: computedProgress,
   })
+
   const containerProps = useSpring({
-    opacity: isLoadingScreenVisible ? 1 : 0,
+    backgroundColor: isLoadingScreenVisible ? '#04060d66' : '#04060d00',
+    backdropFilter: isLoadingScreenVisible ? 'blur(15px)' : 'blur(0px)',
     onRest: () => setVisible(false),
   })
 
@@ -74,14 +74,6 @@ const LoadingScreen = () => {
   if (!isVisible) return null
   return (
     <animated.div style={containerProps} className="loadingScreenContainer">
-      <Canvas
-        className="loadingPaper"
-        camera={{
-          fov: 50,
-        }}
-      >
-        <LoadingScreenExperience />
-      </Canvas>
       <div
         style={{
           display: 'flex',
@@ -90,17 +82,25 @@ const LoadingScreen = () => {
           marginTop: '1rem',
         }}
       >
-        <animated.div style={{ ...progressProps, position: 'absolute' }}>
-          <h2 className="loadingScreenProgress">
+        <animated.div
+          className="loadingScreenProgress"
+          style={{ ...progressProps, position: 'absolute' }}
+        >
+          <h2>Loading...</h2>
+          <h3>
             <animated.span>
               {props.loadingProgress.to((x) => x.toFixed(0))}
             </animated.span>
             %
-          </h2>
+          </h3>
         </animated.div>
         <animated.div
           ref={buttonRef}
-          style={{ ...enterButtonProps, position: 'absolute' }}
+          style={{
+            ...enterButtonProps,
+            position: 'absolute',
+            margin: '2rem 0',
+          }}
         >
           <Button text="ENTER" onClick={handleEnterSite} />
         </animated.div>
