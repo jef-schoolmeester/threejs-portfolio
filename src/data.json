@@ -27,6 +27,21 @@
   },
   "experiences": [
     {
+      "id": "gfinity",
+      "title": "Gfinity PLC",
+      "content": "",
+      "role": "Full-stack developer",
+      "location": "Toronto, ON - Canada",
+      "term": "Sep.2023 - Ongoing",
+      "learnedConcepts": [
+        "Typescript",
+        "Nuxt.js",
+        "Vue",
+        "Tailwind.css",
+        "Sanity CMS"
+      ]
+    },
+    {
       "id": "newrest",
       "title": "Newrest",
       "content": "<p>Contributed to the development of multiple web applications, working tightly with design and marketing teams.</p><h3>Smartbar:</h3><ul><li>Developed and maintained a food ordering web application used by the French national trains using Next.js, Redux, Mule soft, Magento2, Docker, and AWS S3.</li><li>Improved the web application's accessibility by implementing RGAA standards.</li><li>Implemented Azure AD authentication for the middle office.</li><li>Created parent docker images reducing build time by 50%.</li></ul><h3>Smartbar onboard Kiosk:</h3><ul><li>Implemented a kiosk version of Smartbar that runs on trains.</li><li>Developed a proxy using Node.js, Typescript, and Redis to handle offline mode.</li><li>Created an Azure DevOps pipeline to build and zip the project.</li></ul><h3>Connect-eat:</h3><ul><li>Maintained an E-wallet & informative PWA using Next.js, Strapi, and Typescript.</li><li>Implemented new features such as account management, push notifications, satisfaction, and attendance monitoring.</li><li>Wrote documentation for a MongoDB to PostgreSQL data migration, facilitating the migration process.</li></ul>",
