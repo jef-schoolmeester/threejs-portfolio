@@ -4,9 +4,12 @@ import Camera from './camera'
 import Effects from './Effects'
 import { useAnimatedTransition } from '../hooks/useAnimatedTransition'
 import { useDebugMode } from '../hooks/useDebugMode'
+import Postprocessing from './Postprocessing'
+import { useLoadComponents } from '../hooks/useLoadComponents'
 
 const Experience = () => {
   useAnimatedTransition()
+  useLoadComponents()
 
   const isDebugModeEnabled = useDebugMode()
   return (
@@ -20,6 +23,7 @@ const Experience = () => {
       <Models />
       <Camera />
       <Effects />
+      <Postprocessing />
     </>
   )
 }
