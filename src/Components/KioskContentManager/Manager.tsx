@@ -1,6 +1,8 @@
 import { Vector3 } from 'three'
-import { useContentStore } from '../../stores/contentStore'
-import { useTransitionStore } from '../../stores/transitionStore'
+
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
+
 import KioskContentOverlay from './Overlay'
 
 const KioskContentManager = () => {

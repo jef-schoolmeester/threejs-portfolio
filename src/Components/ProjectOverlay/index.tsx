@@ -1,7 +1,10 @@
-import Button from '../Button'
-import './style.css'
-import data from '../../data.json'
 import { useSpring, animated } from 'react-spring'
+
+import data from '@/data.json'
+
+import Button from '@/Components/Button'
+
+import './style.css'
 
 interface Props {
   projectId: string

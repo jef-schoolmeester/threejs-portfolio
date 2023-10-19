@@ -1,8 +1,10 @@
-import { useProgress } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { useSpring } from 'react-spring'
 import { DoubleSide, InstancedMesh, Object3D } from 'three'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+
+import { useFrame } from '@react-three/fiber'
+import { useProgress } from '@react-three/drei'
+
+import { useSpring } from 'react-spring'
 
 const NEWSPAPER_COUNT = 100
 const newspaperWidth = 0.3

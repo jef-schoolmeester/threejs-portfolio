@@ -1,6 +1,8 @@
-import { animated, useSpring } from 'react-spring'
-import './style.css'
 import React from 'react'
+
+import { animated, useSpring } from 'react-spring'
+
+import './style.css'
 
 interface Props {
   subContentId: string

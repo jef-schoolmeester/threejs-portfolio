@@ -1,7 +1,9 @@
-import { sceneCenter, sceneCenterCameraPosition } from '../../config'
-import { useContentStore } from '../../stores/contentStore'
-import { useTransitionStore } from '../../stores/transitionStore'
-import FocusOverlay from '../FocusOverlay'
+import { sceneCenter, sceneCenterCameraPosition } from '@/config'
+
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
+
+import FocusOverlay from '@/Components/FocusOverlay'
 
 const FocusManager = () => {
   const focusedContent = useContentStore((state) => state.focusedContent)

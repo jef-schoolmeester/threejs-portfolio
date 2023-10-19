@@ -1,9 +1,11 @@
-import data from '../../data.json'
-import { useContentStore } from '../../stores/contentStore'
-import ContentOverlay from '../ContentOverlay'
-import NewspaperOverlay from '../NewspaperOverlay'
-import EducationOverlay from '../EducationOverlay'
-import ProjectOverlay from '../ProjectOverlay'
+import data from '@/data.json'
+
+import { useContentStore } from '@/stores/contentStore'
+
+import ProjectOverlay from '@/Components/ProjectOverlay'
+import ContentOverlay from '@/Components/ContentOverlay'
+import NewspaperOverlay from '@/Components/NewspaperOverlay'
+import EducationOverlay from '@/Components/EducationOverlay'
 
 const ContentManager = () => {
   const content = useContentStore((state) => state.content)

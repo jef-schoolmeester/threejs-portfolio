@@ -1,12 +1,16 @@
+import { useEffect, useMemo, useRef, useState } from 'react'
+
 import { useProgress } from '@react-three/drei'
+import { useSpring, animated } from '@react-spring/web'
+
+import { sceneCenter, sceneCenterCameraPosition } from '@/config'
+
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
+
+import Button from '@/Components/Button'
 
 import './style.css'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useSpring, animated } from '@react-spring/web'
-import Button from '../Button'
-import { useContentStore } from '../../stores/contentStore'
-import { useTransitionStore } from '../../stores/transitionStore'
-import { sceneCenter, sceneCenterCameraPosition } from '../../config'
 
 const totalObjectsToLoad = 38
 

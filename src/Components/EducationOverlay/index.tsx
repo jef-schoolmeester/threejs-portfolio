@@ -1,8 +1,11 @@
-import Button from '../Button'
-import './style.css'
-import data from '../../data.json'
 import { useSpring, animated } from 'react-spring'
-import { CloseIcon } from '../Icons'
+
+import data from '@/data.json'
+
+import Button from '@/Components/Button'
+import { CloseIcon } from '@/Components/Icons'
+
+import './style.css'
 
 interface Props {
   educationId: string

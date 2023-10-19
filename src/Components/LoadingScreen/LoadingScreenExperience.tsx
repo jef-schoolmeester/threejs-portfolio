@@ -1,6 +1,8 @@
-import { useThree } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import { AmbientLight, DirectionalLight, Vector3 } from 'three'
+
+import { useThree } from '@react-three/fiber'
+
 import Newspaper from './Newspaper'
 
 const LoadingScreenExperience = () => {

@@ -1,5 +1,7 @@
 import { animated, useSpring } from 'react-spring'
-import Button from '../Button'
+
+import Button from '@/Components/Button'
+
 import './style.css'
 
 interface Props {
