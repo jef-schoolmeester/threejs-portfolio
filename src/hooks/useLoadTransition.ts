@@ -1,5 +1,5 @@
-import { useSpring } from 'react-spring'
 import { Material } from 'three'
+import { useSpring } from 'react-spring'
 
 export const useLoadTransition = () => {
   const [, api] = useSpring(() => ({

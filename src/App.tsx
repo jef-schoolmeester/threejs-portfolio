@@ -1,11 +1,3 @@
-import './App.css'
-import { Canvas } from '@react-three/fiber'
-import Experience from './Experience/index'
-import Cursor from './Components/Cursor'
-import ContentManager from './Components/ContentManager'
-import { cameraStartPosition } from './config'
-import FocusManager from './Components/FocusManager'
-import KioskContentManager from './Components/KioskContentManager/Manager'
 import {
   Suspense,
   createContext,
@@ -14,10 +6,23 @@ import {
   useRef,
   useState,
 } from 'react'
-import LoadingScreen from './Components/LoadingScreen'
-import { useDebugMode } from './hooks/useDebugMode'
-import { Observable } from './utils/Observable'
-import { LoadedModelsType } from './types'
+import { Canvas } from '@react-three/fiber'
+
+import { LoadedModelsType } from '@/types'
+import { cameraStartPosition } from '@/config'
+import { Observable } from '@/utils/Observable'
+
+import { useDebugMode } from '@/hooks/useDebugMode'
+
+import Experience from '@/Experience/index'
+
+import Cursor from '@/Components/Cursor'
+import FocusManager from '@/Components/FocusManager'
+import LoadingScreen from '@/Components/LoadingScreen'
+import ContentManager from '@/Components/ContentManager'
+import KioskContentManager from '@/Components/KioskContentManager/Manager'
+
+import '@/App.css'
 
 export const LoadedItemsContext = createContext<{
   loadedModelsObservable: Observable<LoadedModelsType>

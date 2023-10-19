@@ -1,7 +1,10 @@
-import { Text3D } from '@react-three/drei'
 import { Mesh } from 'three'
 import { useEffect, useRef } from 'react'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+
+import { Text3D } from '@react-three/drei'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
+
 import ContactPoster from './ContactPoster'
 
 const Posters = () => {

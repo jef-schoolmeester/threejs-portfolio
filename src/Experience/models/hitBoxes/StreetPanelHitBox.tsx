@@ -1,6 +1,7 @@
 import { ThreeEvent } from '@react-three/fiber'
-import { useContentStore } from '../../../stores/contentStore'
-import { useHoverStore } from '../../../stores/hoverStore'
+
+import { useHoverStore } from '@/stores/hoverStore'
+import { useContentStore } from '@/stores/contentStore'
 
 interface Props {
   isActive: boolean

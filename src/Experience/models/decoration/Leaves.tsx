@@ -1,7 +1,9 @@
-import { useFrame } from '@react-three/fiber'
-import { useEffect, useMemo, useRef } from 'react'
 import { InstancedMesh, Object3D } from 'three'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import { useEffect, useMemo, useRef } from 'react'
+
+import { useFrame } from '@react-three/fiber'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 const radius = Math.PI / 4
 

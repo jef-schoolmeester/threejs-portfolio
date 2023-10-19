@@ -1,8 +1,11 @@
-import { OrbitControls } from '@react-three/drei'
-import { useTransitionStore } from '../../stores/transitionStore'
-import { useContentStore } from '../../stores/contentStore'
 import { useMemo } from 'react'
-import { useKioskCameraControls } from '../../hooks/useKioskCameraControls'
+
+import { OrbitControls } from '@react-three/drei'
+
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
+
+import { useKioskCameraControls } from '@/hooks/useKioskCameraControls'
 
 const Camera = () => {
   useKioskCameraControls()

@@ -1,10 +1,14 @@
-import { Html, Text } from '@react-three/drei'
-import ContactContent from '../../../Components/ContactContent'
 import { DoubleSide, Mesh, Vector3 } from 'three'
-import { useHoverStore } from '../../../stores/hoverStore'
-import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+
+import { useFrame } from '@react-three/fiber'
+import { Html, Text } from '@react-three/drei'
+
+import { useHoverStore } from '@/stores/hoverStore'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
+
+import ContactContent from '@/Components/ContactContent'
 
 interface Props {
   metalness: number

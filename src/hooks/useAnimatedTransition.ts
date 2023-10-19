@@ -1,8 +1,11 @@
-import { useThree } from '@react-three/fiber'
-import { useTransitionStore } from '../stores/transitionStore'
-import { useSpring } from '@react-spring/three'
 import { useEffect } from 'react'
-import { sceneCenter } from '../config'
+
+import { useThree } from '@react-three/fiber'
+import { useSpring } from '@react-spring/three'
+
+import { sceneCenter } from '@/config'
+
+import { useTransitionStore } from '@/stores/transitionStore'
 
 const defaultTransitionConfig = {
   mass: 1,

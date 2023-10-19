@@ -1,6 +1,7 @@
 import { create } from 'zustand'
-import { CameraState, Destination } from '../types'
-import { sceneCenter, sceneCenterCameraPosition } from '../config'
+
+import { CameraState, Destination } from '@/types'
+import { sceneCenter, sceneCenterCameraPosition } from '@/config'
 
 interface TransitionState {
   isTransitionActive: boolean

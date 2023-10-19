@@ -1,7 +1,8 @@
 import { ThreeEvent } from '@react-three/fiber'
-import { useContentStore } from '../../../stores/contentStore'
-import { useHoverStore } from '../../../stores/hoverStore'
-import { useTransitionStore } from '../../../stores/transitionStore'
+
+import { useHoverStore } from '@/stores/hoverStore'
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
 import { Vector3 } from 'three'
 
 interface Props {

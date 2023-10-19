@@ -1,17 +1,17 @@
+import Tree from './Tree'
 import Grass from './Grass'
 import Leaves from './Leaves'
-import LightPole from './LightPole'
 import Pavement from './Pavement'
-import Tree from './Tree'
+import LightPole from './LightPole'
 
 const Decoration = () => {
   return (
     <group>
-      <Pavement />
-      <LightPole />
       <Tree />
       <Grass />
       <Leaves />
+      <Pavement />
+      <LightPole />
     </group>
   )
 }

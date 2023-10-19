@@ -1,6 +1,7 @@
-import { Center, Text3D } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
+
+import { useLoader } from '@react-three/fiber'
+import { Center, Text3D } from '@react-three/drei'
 
 interface Props {
   title: string

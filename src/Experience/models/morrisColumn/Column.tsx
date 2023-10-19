@@ -1,10 +1,13 @@
-import data from '../../../data.json'
-import SectionTitle from './SectionTitle'
-import SkillSet from './SkillSet'
-import { useEffect, useRef, useState } from 'react'
 import { Material, Mesh } from 'three'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
-import { useLoadTransition } from '../../../hooks/useLoadTransition'
+import { useEffect, useRef, useState } from 'react'
+
+import data from '@/data.json'
+
+import { useLoadTransition } from '@/hooks/useLoadTransition'
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
+
+import SkillSet from './SkillSet'
+import SectionTitle from './SectionTitle'
 
 const Column = () => {
   const { loadedModelsObservable } = useLoadedItemsContext()

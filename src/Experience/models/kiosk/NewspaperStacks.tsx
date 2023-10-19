@@ -1,6 +1,7 @@
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
-import { useEffect, useRef } from 'react'
 import { Mesh } from 'three'
+import { useEffect, useRef } from 'react'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 const NewspaperStacks = () => {
   const { loadedModelsObservable } = useLoadedItemsContext()

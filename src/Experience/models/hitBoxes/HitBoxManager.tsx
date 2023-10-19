@@ -1,5 +1,6 @@
-import { useContentStore } from '../../../stores/contentStore'
-import { useTransitionStore } from '../../../stores/transitionStore'
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
+
 import KioskHitBox from './KioskHitBox'
 import MorrisColumnHitBox from './MorrisColumnHitBox'
 import StreetPanelHitBox from './StreetPanelHitBox'

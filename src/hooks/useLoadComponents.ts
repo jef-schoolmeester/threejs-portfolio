@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { sleep } from '../utils/sleep'
 import {
   DoubleSide,
   Mesh,
@@ -9,9 +7,14 @@ import {
   SRGBColorSpace,
   TextureLoader,
 } from 'three'
+import { useEffect } from 'react'
+
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import { useLoadedItemsContext } from './useLoadedItemsContext'
+
+import { sleep } from '@/utils/sleep'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 export const useLoadComponents = () => {
   const { loadedModelsObservable } = useLoadedItemsContext()

@@ -1,7 +1,9 @@
-import { Text } from '@react-three/drei'
-import { useEffect, useRef } from 'react'
 import { Euler, Mesh } from 'three'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import { useEffect, useRef } from 'react'
+
+import { Text } from '@react-three/drei'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 const StreetPanel = () => {
   const structureRef = useRef<Mesh>(null!)

@@ -1,9 +1,9 @@
-import StreetPanel from './streetPanel/StreetPanel'
-import Decoration from './decoration'
-import Column from './morrisColumn/Column'
-import Kiosk from './kiosk'
-import HitBoxManager from './hitBoxes/HitBoxManager'
-import Posters from './posters'
+import Kiosk from '@models/kiosk'
+import Posters from '@models/posters'
+import Decoration from '@models/decoration'
+import Column from '@models/morrisColumn/Column'
+import StreetPanel from '@models/streetPanel/StreetPanel'
+import HitBoxManager from '@models/hitBoxes/HitBoxManager'
 
 const Models = () => {
   return (

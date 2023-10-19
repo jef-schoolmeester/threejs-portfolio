@@ -1,7 +1,7 @@
-import KioskStructure from './KioskStructure'
-import NewspaperRack from './NewspaperRack'
-import NewspaperStacks from './NewspaperStacks'
 import Newspapers from './Newspapers'
+import NewspaperRack from './NewspaperRack'
+import KioskStructure from './KioskStructure'
+import NewspaperStacks from './NewspaperStacks'
 
 const Kiosk = () => {
   return (

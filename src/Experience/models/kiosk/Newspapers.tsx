@@ -1,11 +1,13 @@
-import { useEffect, useMemo, useState } from 'react'
 import { Material, Mesh } from 'three'
+import { useEffect, useMemo, useState } from 'react'
 
-import data from '../../../data.json'
-import { getOrderedNewspaperNodes } from '../../../utils/newspapers'
-import Newspaper from './Newspaper'
+import data from '@/data.json'
+
+import { getOrderedNewspaperNodes } from '@/utils/newspapers'
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
+
 import Revue from './Revue'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import Newspaper from './Newspaper'
 
 const experiences = data.experiences
 const education = data.education

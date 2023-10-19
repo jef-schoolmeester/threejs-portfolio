@@ -1,5 +1,6 @@
 import { create } from 'zustand'
-import { HoverMessage } from '../types'
+
+import { HoverMessage } from '@/types'
 
 interface HoverState {
   hoverMessage: HoverMessage

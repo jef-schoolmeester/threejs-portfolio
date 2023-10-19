@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { useContentStore } from '../stores/contentStore'
+
+import { useContentStore } from '@/stores/contentStore'
 
 export const useRequestFullScreen = () => {
   const screenType = useContentStore((state) => state.screenType)

@@ -1,7 +1,8 @@
 import { Material, Mesh } from 'three'
 import { useEffect, useRef } from 'react'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
-import { useLoadTransition } from '../../../hooks/useLoadTransition'
+
+import { useLoadTransition } from '@/hooks/useLoadTransition'
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 const KioskStructure = () => {
   const { loadedModelsObservable } = useLoadedItemsContext()

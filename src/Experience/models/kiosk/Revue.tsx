@@ -1,9 +1,12 @@
-import { Text } from '@react-three/drei'
 import { useState } from 'react'
-import { useSpring } from 'react-spring'
-import { a } from '@react-spring/three'
 import { BufferGeometry, Euler, Material, Vector3 } from 'three'
-import { useContentStore } from '../../../stores/contentStore'
+
+import { useSpring } from 'react-spring'
+
+import { a } from '@react-spring/three'
+import { Text } from '@react-three/drei'
+
+import { useContentStore } from '@/stores/contentStore'
 
 interface Props {
   geometry: BufferGeometry

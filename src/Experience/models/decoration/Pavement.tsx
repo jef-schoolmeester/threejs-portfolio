@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
 import { Material, Mesh } from 'three'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
-import { useLoadTransition } from '../../../hooks/useLoadTransition'
+import { useEffect, useRef } from 'react'
+
+import { useLoadTransition } from '@/hooks/useLoadTransition'
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 const Pavement = () => {
   const { startTransition } = useLoadTransition()

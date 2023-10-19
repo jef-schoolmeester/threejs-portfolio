@@ -1,7 +1,9 @@
-import { useFrame } from '@react-three/fiber'
-import { useEffect, useRef } from 'react'
 import { Mesh, Shader } from 'three'
-import { useLoadedItemsContext } from '../../../hooks/useLoadedItemsContext'
+import { useEffect, useRef } from 'react'
+
+import { useFrame } from '@react-three/fiber'
+
+import { useLoadedItemsContext } from '@/hooks/useLoadedItemsContext'
 
 const Grass = () => {
   const { loadedModelsObservable } = useLoadedItemsContext()

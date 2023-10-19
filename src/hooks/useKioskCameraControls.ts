@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { useThree } from '@react-three/fiber'
 
-import { useContentStore } from '../stores/contentStore'
-import { useTransitionStore } from '../stores/transitionStore'
+import { useContentStore } from '@/stores/contentStore'
+import { useTransitionStore } from '@/stores/transitionStore'
 
 export const useKioskCameraControls = () => {
   const { camera } = useThree()
